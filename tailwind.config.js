@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./**/*.html", "./js/**/*.js"],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       fontFamily: {
         figtree: ["Figtree", "sans-serif"],
