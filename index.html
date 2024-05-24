@@ -1,78 +1,857 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="src/output.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.bunny.net"/>
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://kit.fontawesome.com/59539ec33f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="./js/main.js" defer></script>
     <title>Wallet Master</title>
 </head>
-<body class="font-figtree">
-    <div class="bg-customGreen-dark text-customBlue-light p-4">
-        Dark Green background with Light Blue text
-    </div>
-    
-    <div class="bg-customGreen-medium text-customOrange-light p-4">
-        Medium Green background with Light Orange text
-    </div>
-    
-    <div class="bg-customGreen-default text-customPurple-dark p-4">
-        Default Green background with Dark Purple text
-    </div>
-    
-    <div class="bg-customGreen-light text-bgDark p-4">
-        Light Green background with Dark background text
-    </div>
-    
-    <div class="bg-customBlue-dark text-customGreen-light p-4">
-        Dark Blue background with Light Green text
-    </div>
-    
-    <div class="bg-customBlue-medium text-customOrange-dark p-4">
-        Medium Blue background with Dark Orange text
-    </div>
-    
-    <div class="bg-customBlue-default text-customPurple-light p-4">
-        Default Blue background with Light Purple text
-    </div>
-    
-    <div class="bg-customBlue-light text-bgMedium p-4">
-        Light Blue background with Medium background text
-    </div>
-    
-    <div class="bg-customOrange-dark text-customGreen-light p-4">
-        Dark Orange background with Light Green text
-    </div>
-    
-    <div class="bg-customOrange-default text-customBlue-dark p-4">
-        Default Orange background with Dark Blue text
-    </div>
-    
-    <div class="bg-customOrange-light text-customPurple-medium p-4">
-        Light Orange background with Medium Purple text
-    </div>
-    
-    <div class="bg-customOrange-light text-bgDark p-4">
-        Light Orange background with Dark background text
-    </div>
-    
-    <div class="bg-customPurple-dark text-customGreen-light p-4">
-        Dark Purple background with Light Green text
-    </div>
-    
-    <div class="bg-customPurple-default text-customBlue-dark p-4">
-        Default Purple background with Dark Blue text
-    </div>
-    
-    <div class="bg-customPurple-light text-customOrange-medium p-4">
-        Light Purple background with Medium Orange text
-    </div>
-    
-    <div class="bg-customPurple-light text-bgLight p-4">
-        Light Purple background with Light background text
-    </div>
 
+<body class="font-figtree antialiased">
+<!-- start header section -->
+<header class="sticky top-0 z-50 bg-white shadow-sm shadow-[#8b8b8b15]">
+    <nav class="container 2xl:w-[90%] w-[97%] flex justify-between items-center py-4">
+        <div>
+            <a class="flex items-center space-x-2" href="index.html">
+                <img class="w-12" src="image/header-wallet.png" alt="header-logo-wallet">
+                <span class="text-xl font-bold">Wallet Master</span>
+            </a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <ul class="hidden lg:flex items-center space-x-6 capitalize">
+                <li class="font-bold">
+                    <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+                       href="index.html">dashboard</a>
+                </li>
+                <li>
+                    <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+                       href="accounts.html">wallets</a>
+                </li>
+                <li>
+                    <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+                       href="records.html">records</a>
+                </li>
+                <li>
+                    <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+                       href="analytics.html">analytics</a>
+                </li>
+                <!-- <li>
+                    <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200" href="investments.html">investments</a>
+                </li> -->
+                <li>
+                    <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+                       href="imports.html">imports</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex items-center">
+            <div class="mr-4">
+                <input id="modal-button" type="checkbox" class="hidden">
+                <label for="modal-button"
+                       class="capitalize py-2 px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white text-sm rounded-xl cursor-pointer"
+                >
+                    &plus; record</label>
+                <!-- start modal body -->
+                <label id="default-modal" class="opacity-0 -translate-y-10 hidden absolute top-0 left-0 right-0">
+                    <div class="flex justify-center bg-[#2d2d2d31] w-full p-3 pb-5">
+                        <div class="h-[95vh] overflow-y-auto rounded">
+                            <!-- start header -->
+                            <div class="flex justify-between items-center bg-bgLight rounded-t p-3">
+                                <div class="sm:flex items-center">
+                                    <span class="uppercase text-2xl font-bold">add new record</span>
+                                </div>
+                                <div class="">
+                                    <label for="modal-button" class="text-lg cursor-pointer mr-2">
+                                        <i class="fa-solid fa-xmark"></i></label>
+                                </div>
+                            </div>
+
+                            <!-- start body section -->
+                            <div class="flex justify-center">
+                                <div class="">
+                                    <form action="" class="bg-white p-4 mx-auto">
+                                        <!-- new tabs in popup -->
+                                        <div class="flex flex-wrap justify-center">
+                                            <!-- first tabs -->
+                                            <input
+                                                    type="radio"
+                                                    class="tabs__radio hidden"
+                                                    name="tabs-example"
+                                                    id="tab1"
+                                                    checked
+                                            />
+                                            <label
+                                                    for="tab1"
+                                                    class="text-[#fff] tabs__label py-1.5 text-sm px-8 cursor-pointer bg-[#00aa70] border-2 rounded-s"
+                                            >Expense</label
+                                            >
+                                            <div class="tabs__content hidden order-1 w-full">
+                                                <div class="p-4 space-y-4">
+                                                    <div class="space-y-2 mx-auto w-[50%]">
+                                                        <label for="down" class="text-gray-800 text-sm">Wallet</label>
+                                                        <div
+                                                                class="flex justify-center relative w-[100%] h-50px overflow-hidden cursor-pointer select-none"
+                                                        >
+                                                            <select
+                                                                    class="bg-white w-full outline-none text-gray-800 border-2 !important py-2 px-4 appearance-none rounded"
+                                                            >
+                                                                <option
+                                                                        value=""
+                                                                        class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                                                >
+                                                                    Cash
+                                                                </option>
+                                                                <option
+                                                                        value="addAccounts"
+                                                                        class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                                                >
+                                                                    &plus; Add Accounts
+                                                                </option>
+                                                            </select>
+                                                            <div
+                                                                    class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                                            >
+                                                                <i
+                                                                        class="fa-solid fa-caret-down m-auto"
+                                                                ></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="sm:flex justify-between">
+                                                            <div>
+                                                                <label
+                                                                        class="text-gray-800 text-sm"
+                                                                        for="num"
+                                                                >Amount</label
+                                                                >
+                                                                <div
+                                                                        class="w-60 h-10 flex items-center rounded border-2 overflow-hidden mt-1"
+                                                                >
+                                      <span
+                                              class="py-[100%] px-4 bg-white rounded-s cursor-pointer text-gray-800"
+                                      >&ndash;</span
+                                      >
+                                                                    <input
+                                                                            type="number"
+                                                                            class="h-full w-full rounded-e text-right p-1 outline-none"
+                                                                            placeholder="0"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label
+                                                                        class="text-gray-800 text-sm"
+                                                                        for="num"
+                                                                >Currency</label
+                                                                >
+
+                                                                <div
+                                                                        class="flex justify-center relative w-24 h-10 border-2 overflow-hidden cursor-pointer select-none mt-1"
+                                                                >
+                                                                    <select
+                                                                            class="bg-white w-full outline-none text-gray-800 border-none!important px-4 appearance-none rounded uppercase text-sm"
+                                                                    >
+                                                                        <option
+                                                                                value=""
+                                                                                class="bg-white outline-none font-[500] py-4"
+                                                                        >
+                                                                            bdt
+                                                                        </option>
+                                                                    </select>
+                                                                    <div
+                                                                            class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                                                    >
+                                                                        <i
+                                                                                class="fa-solid fa-caret-down m-auto"
+                                                                        ></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="w-full">
+                                  <span class="text-gray-800 text-sm"
+                                  >Category</span>
+
+                                                            <div
+                                                                    class="flex justify-center items-center bg-white border-2 relative w-full h-10 overflow-hidden cursor-pointer mt-2 rounded"
+                                                            >
+                                                                <select
+                                                                        class="w-full outline-none text-gray-800 py-2 px-4 appearance-none"
+                                                                >
+                                                                    <option
+                                                                            value=""
+                                                                            class="text-gray-800 hover:bg-gray-600 toutline-none"
+                                                                    >
+                                                                        Choose
+                                                                    </option>
+                                                                    <option
+                                                                            value="Shopping"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Shopping
+                                                                    </option>
+                                                                    <option
+                                                                            value="Housing"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Housing
+                                                                    </option>
+                                                                    <option
+                                                                            value="Food"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Food & Drinks
+                                                                    </option>
+                                                                    <option
+                                                                            value="Vehicle"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Vehicle
+                                                                    </option>
+                                                                </select>
+                                                                <div
+                                                                        class="flex absolute w-10 h-full top-0 right-0 text-slate-700 text-sm pointer-events-none"
+                                                                >
+                                                                    <i
+                                                                            class="fa-solid fa-caret-down m-auto"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex justify-between space-x-2">
+                                                            <div class="grow">
+                                                                <div>
+                                                                    <span class="text-gray-800 text-sm">Date</span>
+                                                                    <div class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded">
+                                        <span class="capitalize"
+                                        >feb 14, 2024</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <div class="w-full">
+                                      <span class="text-gray-800 text-sm"
+                                      >Time</span
+                                      >
+                                                                    <div
+                                                                            class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                                                    >
+                                                                        <span class="uppercase">4:45 pm</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-full">
+                                                            <label class="text-gray-800 text-sm" for="note"
+                                                            >Note</label
+                                                            >
+                                                            <textarea id="note"
+                                                                      class="mt-1 w-full p-2 border-2 rounded outline-none"
+                                                            ></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- second tabs -->
+                                            <input
+                                                    type="radio"
+                                                    class="tabs__radio hidden"
+                                                    name="tabs-example"
+                                                    id="tab2"
+                                            />
+                                            <label
+                                                    for="tab2"
+                                                    class="text-[#fff] tabs__label py-1.5 text-sm px-8 cursor-pointer bg-[#00aa70] border-2"
+                                            >Income</label
+                                            >
+                                            <div class="tabs__content hidden order-1 w-full">
+                                                <div class="p-4 space-y-4">
+                                                    <div class="space-y-2 mx-auto w-[50%]">
+                                                        <label for="down" class="text-gray-800 text-sm">Wallet</label>
+                                                        <div
+                                                                class="flex justify-center relative w-[100%] h-50px overflow-hidden cursor-pointer select-none"
+                                                        >
+                                                            <select
+                                                                    class="bg-white w-full outline-none text-gray-800 border-2 !important py-2 px-4 appearance-none rounded"
+                                                            >
+                                                                <option
+                                                                        value=""
+                                                                        class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                                                >
+                                                                    Cash
+                                                                </option>
+                                                                <option
+                                                                        value="addAccounts"
+                                                                        class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                                                >
+                                                                    &plus; Add Accounts
+                                                                </option>
+                                                            </select>
+                                                            <div
+                                                                    class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                                            >
+                                                                <i
+                                                                        class="fa-solid fa-caret-down m-auto"
+                                                                ></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="sm:flex justify-between">
+                                                            <div>
+                                                                <label
+                                                                        class="text-gray-800 text-sm"
+                                                                        for="num"
+                                                                >Amount</label
+                                                                >
+                                                                <div
+                                                                        class="w-60 h-10 flex items-center rounded border-2 overflow-hidden mt-1"
+                                                                >
+                                      <span
+                                              class="py-[100%] px-4 bg-white rounded-s cursor-pointer text-gray-800"
+                                      >&ndash;</span
+                                      >
+                                                                    <input
+                                                                            type="number"
+                                                                            class="h-full w-full rounded-e text-right p-1 outline-none"
+                                                                            placeholder="0"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label
+                                                                        class="text-gray-800 text-sm"
+                                                                        for="num"
+                                                                >Currency</label
+                                                                >
+
+                                                                <div
+                                                                        class="flex justify-center relative w-24 h-10 border-2 overflow-hidden cursor-pointer select-none mt-1"
+                                                                >
+                                                                    <select
+                                                                            class="bg-white w-full outline-none text-gray-800 border-none!important px-4 appearance-none rounded uppercase text-sm"
+                                                                    >
+                                                                        <option
+                                                                                value=""
+                                                                                class="bg-white outline-none font-[500] py-4"
+                                                                        >
+                                                                            bdt
+                                                                        </option>
+                                                                    </select>
+                                                                    <div
+                                                                            class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                                                    >
+                                                                        <i
+                                                                                class="fa-solid fa-caret-down m-auto"
+                                                                        ></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="w-full">
+                                  <span class="text-gray-800 text-sm"
+                                  >Category</span
+                                  >
+
+                                                            <div
+                                                                    class="flex justify-center items-center bg-white border-2 relative w-full h-10 overflow-hidden cursor-pointer mt-2 rounded"
+                                                            >
+                                                                <select
+                                                                        class="w-full outline-none text-gray-800 py-2 px-4 appearance-none"
+                                                                >
+                                                                    <option
+                                                                            value=""
+                                                                            class="text-gray-800 hover:bg-gray-600 toutline-none"
+                                                                    >
+                                                                        Choose
+                                                                    </option>
+                                                                    <option
+                                                                            value="Shopping"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Shopping
+                                                                    </option>
+                                                                    <option
+                                                                            value="Housing"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Housing
+                                                                    </option>
+                                                                    <option
+                                                                            value="Food"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Food & Drinks
+                                                                    </option>
+                                                                    <option
+                                                                            value="Vehicle"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Vehicle
+                                                                    </option>
+                                                                </select>
+                                                                <div
+                                                                        class="flex absolute w-10 h-full top-0 right-0 text-slate-700 text-sm pointer-events-none"
+                                                                >
+                                                                    <i
+                                                                            class="fa-solid fa-caret-down m-auto"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex justify-between space-x-2">
+                                                            <div class="grow">
+                                                                <div>
+                                                                    <span class="text-gray-800 text-sm">Date</span>
+                                                                    <div class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded">
+                                        <span class="capitalize"
+                                        >feb 14, 2024</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <div class="w-full">
+                                      <span class="text-gray-800 text-sm"
+                                      >Time</span
+                                      >
+                                                                    <div
+                                                                            class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                                                    >
+                                                                        <span class="uppercase">4:45 pm</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-full">
+                                                            <label class="text-gray-800 text-sm" for="note"
+                                                            >Note</label
+                                                            >
+                                                            <textarea id="note"
+                                                                      class="mt-1 w-full p-2 border-2 rounded outline-none"
+                                                            ></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- third tabs -->
+                                            <input
+                                                    type="radio"
+                                                    class="tabs__radio hidden"
+                                                    name="tabs-example"
+                                                    id="tab3"
+                                            />
+                                            <label
+                                                    for="tab3"
+                                                    class="text-[#fff] bg-[#00aa70] border-2 tabs__label py-1.5 text-sm px-8 cursor-pointer rounded-e"
+                                            >Transfer</label
+                                            >
+                                            <div class="tabs__content hidden order-1 w-full">
+                                                <div class="p-4 space-y-4">
+                                                    <div class="space-y-2 mx-auto w-[50%]">
+                                                        <label for="down" class="text-gray-800 text-sm">Wallet</label>
+                                                        <div
+                                                                class="flex justify-center relative w-[100%] h-50px overflow-hidden cursor-pointer select-none"
+                                                        >
+                                                            <select
+                                                                    class="bg-white w-full outline-none text-gray-800 border-2 !important py-2 px-4 appearance-none rounded"
+                                                            >
+                                                                <option
+                                                                        value=""
+                                                                        class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                                                >
+                                                                    Cash
+                                                                </option>
+                                                                <option
+                                                                        value="addAccounts"
+                                                                        class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                                                >
+                                                                    &plus; Add Accounts
+                                                                </option>
+                                                            </select>
+                                                            <div
+                                                                    class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                                            >
+                                                                <i
+                                                                        class="fa-solid fa-caret-down m-auto"
+                                                                ></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="sm:flex justify-between">
+                                                            <div>
+                                                                <label
+                                                                        class="text-gray-800 text-sm"
+                                                                        for="num"
+                                                                >Amount</label
+                                                                >
+                                                                <div
+                                                                        class="w-60 h-10 flex items-center rounded border-2 overflow-hidden mt-1"
+                                                                >
+                                      <span
+                                              class="py-[100%] px-4 bg-white rounded-s cursor-pointer text-gray-800"
+                                      >&ndash;</span
+                                      >
+                                                                    <input
+                                                                            type="number"
+                                                                            class="h-full w-full rounded-e text-right p-1 outline-none"
+                                                                            placeholder="0"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label
+                                                                        class="text-gray-800 text-sm"
+                                                                        for="num"
+                                                                >Currency</label
+                                                                >
+
+                                                                <div
+                                                                        class="flex justify-center relative w-24 h-10 border-2 overflow-hidden cursor-pointer select-none mt-1"
+                                                                >
+                                                                    <select
+                                                                            class="bg-white w-full outline-none text-gray-800 border-none!important px-4 appearance-none rounded uppercase text-sm"
+                                                                    >
+                                                                        <option
+                                                                                value=""
+                                                                                class="bg-white outline-none font-[500] py-4"
+                                                                        >
+                                                                            bdt
+                                                                        </option>
+                                                                    </select>
+                                                                    <div
+                                                                            class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                                                    >
+                                                                        <i
+                                                                                class="fa-solid fa-caret-down m-auto"
+                                                                        ></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="w-full">
+                                  <span class="text-gray-800 text-sm"
+                                  >Category</span
+                                  >
+
+                                                            <div
+                                                                    class="flex justify-center items-center bg-white border-2 relative w-full h-10 overflow-hidden cursor-pointer mt-2 rounded"
+                                                            >
+                                                                <select
+                                                                        class="w-full outline-none text-gray-800 py-2 px-4 appearance-none"
+                                                                >
+                                                                    <option
+                                                                            value=""
+                                                                            class="text-gray-800 hover:bg-gray-600 toutline-none"
+                                                                    >
+                                                                        Choose
+                                                                    </option>
+                                                                    <option
+                                                                            value="Shopping"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Shopping
+                                                                    </option>
+                                                                    <option
+                                                                            value="Housing"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Housing
+                                                                    </option>
+                                                                    <option
+                                                                            value="Food"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Food & Drinks
+                                                                    </option>
+                                                                    <option
+                                                                            value="Vehicle"
+                                                                            class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                                                    >
+                                                                        Vehicle
+                                                                    </option>
+                                                                </select>
+                                                                <div
+                                                                        class="flex absolute w-10 h-full top-0 right-0 text-slate-700 text-sm pointer-events-none"
+                                                                >
+                                                                    <i
+                                                                            class="fa-solid fa-caret-down m-auto"
+                                                                    ></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex justify-between space-x-2">
+                                                            <div class="grow">
+                                                                <div>
+                                                                    <span class="text-gray-800 text-sm">Date</span>
+                                                                    <div class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded">
+                                        <span class="capitalize"
+                                        >feb 14, 2024</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <div class="w-full">
+                                      <span class="text-gray-800 text-sm"
+                                      >Time</span
+                                      >
+                                                                    <div
+                                                                            class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                                                    >
+                                                                        <span class="uppercase">4:45 pm</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-full">
+                                                            <label class="text-gray-800 text-sm" for="notes"
+                                                            >Note</label
+                                                            >
+                                                            <textarea id="notes"
+                                                                      class="mt-1 w-full p-2 border-2 rounded outline-none"
+                                                            ></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center space-y-4">
+                                            <button type="submit"
+                                                    class="w-1/6 capitalize font-bold px-4 py-1 rounded bg-customBlue text-white">
+                                                add record
+                                            </button>
+                                            <a
+                                                    class="text-sm leading-3 underline text-customBlue "
+                                                    href="#"
+                                            >Add and create another</a
+                                            >
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+
+
+            </div>
+            <!-- end header modal section -->
+            <div class="flex items-center space-x-4">
+                <span class="text-2xl">
+                    <i class="fa-regular cursor-pointer text-bgDark fa-bell"></i>
+                </span>
+                <div class="space-x-2 flex">
+                    <div class="w-8 h-8 rounded-full">
+                        <img class="w-full cursor-pointer" src="image/header-user.png" alt="user-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile screen -->
+        <div id="hamburger" class="lg:hidden cursor-pointer z-50">
+            <i id="header-bars" class="fa-solid fa-bars"></i>
+        </div>
+        <!-- responsive nav hidden -->
+        <div id="menu" class="hidden bg-white h-[100vh] absolute inset-0">
+            <ul class="h-full grid place-items-center py-20">
+                <li>
+                    <a id="hLink" href="index.html" class="hover:text-green-600 ease-in duration-200">
+                        <img class="w-12" src="image/header-wallet.png" alt="header-logo-wallet">
+                    </a>
+                </li>
+                <li><a id="hLink" href="index.html" class="hover:text-green-600 ease-in duration-200">dashboard</a>
+                </li>
+                <li><a id="hLink" href="accounts.html"
+                       class="hover:text-green-600 ease-in duration-200">accounts</a>
+                </li>
+                <li><a id="hLink" href="records.html" class="hover:text-green-600 ease-in duration-200">records</a>
+                </li>
+                <li><a id="hLink" href="analytics.html"
+                       class="hover:text-green-600 ease-in duration-200">analytics</a></li>
+                <!--                <li><a id="hLink" href="investments.html"-->
+                <!--                       class="hover:text-green-600 ease-in duration-200">investments</a>-->
+                <!--                </li>-->
+                <li><a id="hLink" href="imports.html" class="hover:text-green-600 ease-in duration-200">imports</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- end header section -->
+
+<!-- start add accounts section -->
+<section class="bg-[#fafbfc] flex items-center py-8">
+    <div class="container w-[97%] 2xl:w-[90%]">
+        <div class="lg:w-[45%] w-[70%] grid md:grid-cols-2  gap-5 md:ml-3">
+            <div class="bg-customBlue-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer">
+                <div class="text-white text-2xl mr-3">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <div class="flex justify-around space-x-4 items-center uppercase">
+                    <h2 class="text-white">Cash:</h2>
+                    <h2 class="uppercase text-white font-bold">15,000</h2>
+                    <h2 class="uppercase text-bgMedium">bdt</h2>
+                </div>
+            </div>
+            <div
+                    class="p-3 cursor-pointer py-5 md:py-0 border-2 border-dashed border-[#e5e9ed] rounded-xl text-[#7f94bb] flex hover:border-customBlue hover:text-customBlue hover:scale-105 transition-transform duration-300">
+                <button class="capitalize m-auto">&plus; new wallet</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end add accounts section -->
+
+<!-- start select month -->
+<section class="bg-[#eff0f2] p-5 sticky top-[64px] lg:top-20 z-10">
+    <div class="container">
+        <div class="flex items-center divide-x-2 justify-center">
+            <button
+                    class="flex cursor-pointer items-center h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-s-lg bg-white ">
+                <span class="p-4 text-sm">Previous month</span>
+            </button>
+            <button
+                    class="flex cursor-pointer items-center h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-e-lg bg-white ">
+                <span class="p-4 text-sm">This month</span>
+            </button>
+        </div>
+    </div>
+</section>
+<!-- end select month -->
+
+<!-- start body chart section -->
+<section class="bg-[#eff0f2] py-5">
+    <div class="container w-[97%] 2xl:w-[90%]">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+            <!-- one grid -->
+            <div class="bg-bgLight p-4 rounded-xl shadow-xl">
+                <div class="border-b border-gray-800 py-2 capitalize">
+                    <span class="font-semibold">Summary</span>
+                </div>
+                <div class="mt-10">
+                    <div id="bar-chart"></div>
+                </div>
+            </div>
+            <!-- two grid -->
+            <div class="bg-bgLight p-4 rounded-xl shadow-xl">
+                <div class="border-b border-gray-800 py-2 capitalize">
+                    <span class="font-semibold">balance stats</span>
+                </div>
+                <div>
+                    <div class="uppercase pt-2">
+                        <span class="text-xs font-semibold text-gray-800">today</span>
+                        <h2 class="text-2xl font-semibold text-customBlue-dark">bdt 15,000</h2>
+                    </div>
+                    <div>
+                        <div id="line-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- third -->
+            <div class="bg-bgLight p-4 rounded-xl shadow-xl">
+                <div class="border-b border-gray-800 py-2 capitalize">
+                    <span class="font-semibold">cash flow</span>
+                </div>
+                <div>
+                    <div class="uppercase pt-2">
+                        <span class="text-xs font-semibold text-gray-800">this month</span>
+                        <h2 class="text-2xl font-semibold text-customBlue-dark">bdt 15,000.00</h2>
+                    </div>
+                    <div>
+                        <div class="mt-10">
+                            <div class="capitalize flex justify-between items-center mb-2">
+                                <span class="text-sm text-[#636d7b] font-[500]">income</span>
+                                <h2 class="uppercase text-sm font-[600] text-[#202326]">bdt 15,000.00</h2>
+                            </div>
+                            <div class="w-full h-8 rounded-lg bg-customGreen-light">
+                                <div class="w-[80%] h-full rounded bg-customGreen-dark"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="capitalize flex justify-between items-center mb-2 mt-5">
+                                <span class="text-sm text-[#636d7b] font-[500]">expense</span>
+                                <h2 class="uppercase text-sm font-[600] text-[#202326]">bdt 5000.00</h2>
+                            </div>
+                            <div class="w-full h-8 rounded-lg bg-customOrange-light">
+                                <div class="w-[30%] h-full rounded bg-customOrange-dark"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- four -->
+            <div class="bg-bgLight p-4 rounded-xl shadow-xl">
+                <div class="border-b border-gray-800 py-2 capitalize">
+                    <span class="font-semibold">expenses</span>
+                </div>
+                <div>
+                    <div>
+                        <div class=" pt-2 flex justify-between items-center">
+                            <span class="capitalize text-md text-gray-800">Total expenses:</span>
+                            <h2 class="uppercase text-xl font-semibold text-customBlue-dark">2,00000 bdt</h2>
+                        </div>
+                    </div>
+                    <div class="mt-5 flex justify-center">
+                        <div id="pie-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- five -->
+            <div class="bg-bgLight p-4 rounded-xl shadow-xl">
+                <div class="border-b border-gray-800 py-2 capitalize">
+                    <span class="font-semibold">History</span>
+                </div>
+                <div class="md:flex items-center mt-5 pb-[96px] md:pb-0">
+                    <span class="bg-customOrange py-[4px] px-[6px] rounded-full mr-2"><i
+                            class="fa-solid fa-building-wheat text-bgLight"></i>
+                    </span>
+                    <div class="flex justify-between w-full">
+                        <div class="flex flex-col">
+                            <span class="text-gray-800 capitalize">bank loan</span>
+                            <div class="text-customBlue-dark text-sm">
+                                <i class="fa-solid fa-circle text-[10px] text-[#6a1b9a]"></i>
+                                <span>Cash</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-customBlue-dark font-bold uppercase">bdt 5,000</span>
+                            <span class="text-[#545d68] text-sm">6 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- six -->
+            <div id="move-div"
+                 class="flex bg-transparent group rounded-lg p-4 border-2 border-dashed border-[#ccd2db] text-[#ccd2db] cursor-pointer hover:border-customBlue-dark hover:text-customBlue-dark">
+                <div class="m-auto text-center py-14 md:py-0">
+                    <div id="leve-div"
+                         class="flex mb-4 w-16 h-16 rounded-full bg-[#ccd2db] group-hover:bg-customBlue-dark items-center justify-center">
+                        <span class="text-white"><i class="fa-solid fa-plus text-2xl"></i></span>
+                    </div>
+                    <span class="uppercase text-sm font-semibold">add card</span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
 </body>
+
+
 </html>

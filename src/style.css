@@ -1,0 +1,60 @@
+        /* .tabs__radio:checked+.tabs__label {
+            font-weight: bold;
+            color: #ffffff;
+            background-color: rgb(18, 18, 18);
+        }
+
+        .tabs__radio:checked+.tabs__label+.tabs__content {
+            display: initial;
+        } */
+
+        /* option section */
+        .select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 1em;
+            background: #2b2e2e;
+            cursor: pointer;
+            pointer-events: none;
+            /* transition: .25s all ease; */
+        }
+
+        .select:hover::after {
+            color: #23b499;
+        }
+
+
+
+        /* tab with modal  input*/
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            appearance: textfield;
+        }
+
+        /* tabs css */
+        .tabs__radio:checked+.tabs__label {
+            color: #424d5b;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .tabs__radio:checked+.tabs__label+.tabs__content {
+            display: initial;
+        }
+
+
+        /* modal section*/
+
+        #modal-button:checked~#default-modal {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
