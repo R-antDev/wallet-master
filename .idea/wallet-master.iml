@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="59539ec33f" level="application" />
     <orderEntry type="library" name="apexcharts" level="application" />
+    <orderEntry type="library" name="chart.js" level="application" />
   </component>
 </module>

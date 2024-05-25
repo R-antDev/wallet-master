@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="src/output.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link
+    href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="src/style.css" />
+  <script
+    src="https://kit.fontawesome.com/59539ec33f.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="./js/main.js" defer></script>
+  <title>Wallet Master</title>
+</head>
+
+<body class="font-figtree antialiased">
+<!-- start header section -->
+<header class="sticky top-0 z-50 bg-white shadow-sm shadow-[#8b8b8b15]">
+  <nav
+    class="container 2xl:w-[90%] w-[97%] flex justify-between items-center py-4"
+  >
+    <div>
+      <a class="flex items-center space-x-2" href="index.html">
+        <img
+          class="w-12"
+          src="image/header-wallet.png"
+          alt="header-logo-wallet"
+        />
+        <span class="text-xl font-bold">Wallet Master</span>
+      </a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <ul class="hidden lg:flex items-center space-x-6 capitalize">
+        <li class="font-bold">
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="index.html"
+          >dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="accounts.html"
+          >wallets</a
+          >
+        </li>
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="records.html"
+          >records</a
+          >
+        </li>
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="analytics.html"
+          >analytics</a
+          >
+        </li>
+        <!-- <li>
+                <a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200" href="investments.html">investments</a>
+            </li> -->
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="imports.html"
+          >imports</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="flex items-center">
+      <div class="mr-4">
+        <input id="modal-button" type="checkbox" class="hidden" />
+        <label
+          for="modal-button"
+          class="capitalize py-2 px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white text-sm rounded-xl cursor-pointer"
+        >
+          &plus; record</label
+        >
+        <!-- start modal body -->
+        <label
+          id="default-modal"
+          class="opacity-0 -translate-y-10 hidden absolute top-0 left-0 right-0"
+        >
+          <div class="flex justify-center bg-[#2d2d2d31] w-full p-3 pb-5">
+            <div class="h-[95vh] overflow-y-auto rounded">
+              <!-- start header -->
+              <div
+                class="flex justify-between items-center bg-bgLight rounded-t p-3"
+              >
+                <div class="sm:flex items-center">
+                      <span class="uppercase text-2xl font-bold"
+                      >add new record</span
+                      >
+                </div>
+                <div class="">
+                  <label
+                    for="modal-button"
+                    class="text-lg cursor-pointer mr-2"
+                  >
+                    <i class="fa-solid fa-xmark"></i
+                    ></label>
+                </div>
+              </div>
+
+              <!-- start body section -->
+              <div class="flex justify-center">
+                <div class="">
+                  <form action="" class="bg-white p-4 mx-auto">
+                    <!-- new tabs in popup -->
+                    <div class="flex flex-wrap justify-center">
+                      <!-- first tabs -->
+                      <input
+                        type="radio"
+                        class="tabs__radio hidden"
+                        name="tabs-example"
+                        id="tab1"
+                        checked
+                      />
+                      <label
+                        for="tab1"
+                        class="text-[#fff] tabs__label py-1.5 text-sm px-8 cursor-pointer bg-[#00aa70] border-2 rounded-s"
+                      >Expense</label
+                      >
+                      <div class="tabs__content hidden order-1 w-full">
+                        <div class="p-4 space-y-4">
+                          <div class="space-y-2 mx-auto w-[50%]">
+                            <label class="text-gray-800 text-sm"
+                            >Wallet</label
+                            >
+                            <div
+                              class="flex justify-center relative w-[100%] h-50px overflow-hidden cursor-pointer select-none"
+                            >
+                              <select
+                                class="bg-white w-full outline-none text-gray-800 border-2 !important py-2 px-4 appearance-none rounded"
+                              >
+                                <option
+                                  value=""
+                                  class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                >
+                                  Cash
+                                </option>
+                                <option
+                                  value="addAccounts"
+                                  class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                >
+                                  &plus; Add Accounts
+                                </option>
+                              </select>
+                              <div
+                                class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                              >
+                                <i
+                                  class="fa-solid fa-caret-down m-auto"
+                                ></i>
+                              </div>
+                            </div>
+
+                            <div class="sm:flex justify-between">
+                              <div>
+                                <label class="text-gray-800 text-sm"
+                                >Amount</label
+                                >
+                                <div
+                                  class="w-60 h-10 flex items-center rounded border-2 overflow-hidden mt-1"
+                                >
+                                      <span
+                                        class="py-[100%] px-4 bg-white rounded-s cursor-pointer text-gray-800"
+                                      >&ndash;</span
+                                      >
+                                  <input
+                                    type="number"
+                                    class="h-full w-full rounded-e text-right p-1 outline-none"
+                                    placeholder="0"
+                                  />
+                                </div>
+                              </div>
+                              <div>
+                                <label class="text-gray-800 text-sm"
+                                >Currency</label
+                                >
+
+                                <div
+                                  class="flex justify-center relative w-24 h-10 border-2 overflow-hidden cursor-pointer select-none mt-1"
+                                >
+                                  <select
+                                    class="bg-white w-full outline-none text-gray-800 border-none!important px-4 appearance-none rounded uppercase text-sm"
+                                  >
+                                    <option
+                                      value=""
+                                      class="bg-white outline-none font-[500] py-4"
+                                    >
+                                      bdt
+                                    </option>
+                                  </select>
+                                  <div
+                                    class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                  >
+                                    <i
+                                      class="fa-solid fa-caret-down m-auto"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="w-full">
+                                  <span class="text-gray-800 text-sm"
+                                  >Category</span
+                                  >
+
+                              <div
+                                class="flex justify-center items-center bg-white border-2 relative w-full h-10 overflow-hidden cursor-pointer mt-2 rounded"
+                              >
+                                <select
+                                  class="w-full outline-none text-gray-800 py-2 px-4 appearance-none"
+                                >
+                                  <option
+                                    value=""
+                                    class="text-gray-800 hover:bg-gray-600 toutline-none"
+                                  >
+                                    Choose
+                                  </option>
+                                  <option
+                                    value="Shopping"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Shopping
+                                  </option>
+                                  <option
+                                    value="Housing"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Housing
+                                  </option>
+                                  <option
+                                    value="Food"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Food & Drinks
+                                  </option>
+                                  <option
+                                    value="Vehicle"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Vehicle
+                                  </option>
+                                </select>
+                                <div
+                                  class="flex absolute w-10 h-full top-0 right-0 text-slate-700 text-sm pointer-events-none"
+                                >
+                                  <i
+                                    class="fa-solid fa-caret-down m-auto"
+                                  ></i>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="flex justify-between space-x-2">
+                              <div class="grow">
+                                <div>
+                                      <span class="text-gray-800 text-sm"
+                                      >Date</span
+                                      >
+                                  <div
+                                    class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                  >
+                                        <span class="capitalize"
+                                        >feb 14, 2024</span
+                                        >
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div>
+                                <div class="w-full">
+                                      <span class="text-gray-800 text-sm"
+                                      >Time</span
+                                      >
+                                  <div
+                                    class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                  >
+                                    <span class="uppercase">4:45 pm</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-full">
+                              <label
+                                class="text-gray-800 text-sm"
+                                for="notes"
+                              >Note</label
+                              >
+                              <textarea
+                                class="mt-1 w-full p-2 border-2 rounded outline-none"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- second tabs -->
+                      <input
+                        type="radio"
+                        class="tabs__radio hidden"
+                        name="tabs-example"
+                        id="tab2"
+                      />
+                      <label
+                        for="tab2"
+                        class="text-[#fff] tabs__label py-1.5 text-sm px-8 cursor-pointer bg-[#00aa70] border-2"
+                      >Income</label
+                      >
+                      <div class="tabs__content hidden order-1 w-full">
+                        <div class="p-4 space-y-4">
+                          <div class="space-y-2 mx-auto w-[50%]">
+                            <label class="text-gray-800 text-sm"
+                            >Wallet</label
+                            >
+                            <div
+                              class="flex justify-center relative w-[100%] h-50px overflow-hidden cursor-pointer select-none"
+                            >
+                              <select
+                                class="bg-white w-full outline-none text-gray-800 border-2 !important py-2 px-4 appearance-none rounded"
+                              >
+                                <option
+                                  value=""
+                                  class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                >
+                                  Cash
+                                </option>
+                                <option
+                                  value="addAccounts"
+                                  class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                >
+                                  &plus; Add Accounts
+                                </option>
+                              </select>
+                              <div
+                                class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                              >
+                                <i
+                                  class="fa-solid fa-caret-down m-auto"
+                                ></i>
+                              </div>
+                            </div>
+
+                            <div class="sm:flex justify-between">
+                              <div>
+                                <label class="text-gray-800 text-sm"
+                                >Amount</label
+                                >
+                                <div
+                                  class="w-60 h-10 flex items-center rounded border-2 overflow-hidden mt-1"
+                                >
+                                      <span
+                                        class="py-[100%] px-4 bg-white rounded-s cursor-pointer text-gray-800"
+                                      >&ndash;</span
+                                      >
+                                  <input
+                                    type="number"
+                                    class="h-full w-full rounded-e text-right p-1 outline-none"
+                                    placeholder="0"
+                                  />
+                                </div>
+                              </div>
+                              <div>
+                                <label class="text-gray-800 text-sm"
+                                >Currency</label
+                                >
+
+                                <div
+                                  class="flex justify-center relative w-24 h-10 border-2 overflow-hidden cursor-pointer select-none mt-1"
+                                >
+                                  <select
+                                    class="bg-white w-full outline-none text-gray-800 border-none!important px-4 appearance-none rounded uppercase text-sm"
+                                  >
+                                    <option
+                                      value=""
+                                      class="bg-white outline-none font-[500] py-4"
+                                    >
+                                      bdt
+                                    </option>
+                                  </select>
+                                  <div
+                                    class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                  >
+                                    <i
+                                      class="fa-solid fa-caret-down m-auto"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="w-full">
+                                  <span class="text-gray-800 text-sm"
+                                  >Category</span
+                                  >
+
+                              <div
+                                class="flex justify-center items-center bg-white border-2 relative w-full h-10 overflow-hidden cursor-pointer mt-2 rounded"
+                              >
+                                <select
+                                  class="w-full outline-none text-gray-800 py-2 px-4 appearance-none"
+                                >
+                                  <option
+                                    value=""
+                                    class="text-gray-800 hover:bg-gray-600 toutline-none"
+                                  >
+                                    Choose
+                                  </option>
+                                  <option
+                                    value="Shopping"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Shopping
+                                  </option>
+                                  <option
+                                    value="Housing"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Housing
+                                  </option>
+                                  <option
+                                    value="Food"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Food & Drinks
+                                  </option>
+                                  <option
+                                    value="Vehicle"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Vehicle
+                                  </option>
+                                </select>
+                                <div
+                                  class="flex absolute w-10 h-full top-0 right-0 text-slate-700 text-sm pointer-events-none"
+                                >
+                                  <i
+                                    class="fa-solid fa-caret-down m-auto"
+                                  ></i>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="flex justify-between space-x-2">
+                              <div class="grow">
+                                <div>
+                                      <span class="text-gray-800 text-sm"
+                                      >Date</span
+                                      >
+                                  <div
+                                    class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                  >
+                                        <span class="capitalize"
+                                        >feb 14, 2024</span
+                                        >
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div>
+                                <div class="w-full">
+                                      <span class="text-gray-800 text-sm"
+                                      >Time</span
+                                      >
+                                  <div
+                                    class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                  >
+                                    <span class="uppercase">4:45 pm</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-full">
+                              <label
+                                class="text-gray-800 text-sm"
+                                for="note"
+                              >Note</label
+                              >
+                              <textarea
+                                id="note"
+                                class="mt-1 w-full p-2 border-2 rounded outline-none"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- third tabs -->
+                      <input
+                        type="radio"
+                        class="tabs__radio hidden"
+                        name="tabs-example"
+                        id="tab3"
+                      />
+                      <label
+                        for="tab3"
+                        class="text-[#fff] bg-[#00aa70] border-2 tabs__label py-1.5 text-sm px-8 cursor-pointer rounded-e"
+                      >Transfer</label
+                      >
+                      <div class="tabs__content hidden order-1 w-full">
+                        <div class="p-4 space-y-4">
+                          <div class="space-y-2 mx-auto w-[50%]">
+                            <label class="text-gray-800 text-sm"
+                            >Wallet</label
+                            >
+                            <div
+                              class="flex justify-center relative w-[100%] h-50px overflow-hidden cursor-pointer select-none"
+                            >
+                              <select
+                                class="bg-white w-full outline-none text-gray-800 border-2 !important py-2 px-4 appearance-none rounded"
+                              >
+                                <option
+                                  value=""
+                                  class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                >
+                                  Cash
+                                </option>
+                                <option
+                                  value="addAccounts"
+                                  class="bg-white hover:bg-indigo-800 text-gray-800 outline-none"
+                                >
+                                  &plus; Add Accounts
+                                </option>
+                              </select>
+                              <div
+                                class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                              >
+                                <i
+                                  class="fa-solid fa-caret-down m-auto"
+                                ></i>
+                              </div>
+                            </div>
+
+                            <div class="sm:flex justify-between">
+                              <div>
+                                <label class="text-gray-800 text-sm"
+                                >Amount</label
+                                >
+                                <div
+                                  class="w-60 h-10 flex items-center rounded border-2 overflow-hidden mt-1"
+                                >
+                                      <span
+                                        class="py-[100%] px-4 bg-white rounded-s cursor-pointer text-gray-800"
+                                      >&ndash;</span
+                                      >
+                                  <input
+                                    type="number"
+                                    class="h-full w-full rounded-e text-right p-1 outline-none"
+                                    placeholder="0"
+                                  />
+                                </div>
+                              </div>
+                              <div>
+                                <label class="text-gray-800 text-sm"
+                                >Currency</label
+                                >
+
+                                <div
+                                  class="flex justify-center relative w-24 h-10 border-2 overflow-hidden cursor-pointer select-none mt-1"
+                                >
+                                  <select
+                                    class="bg-white w-full outline-none text-gray-800 border-none!important px-4 appearance-none rounded uppercase text-sm"
+                                  >
+                                    <option
+                                      value=""
+                                      class="bg-white outline-none font-[500] py-4"
+                                    >
+                                      bdt
+                                    </option>
+                                  </select>
+                                  <div
+                                    class="flex absolute w-10 h-full top-0 right-0 text-gray-800 text-sm pointer-events-none"
+                                  >
+                                    <i
+                                      class="fa-solid fa-caret-down m-auto"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="w-full">
+                                  <span class="text-gray-800 text-sm"
+                                  >Category</span
+                                  >
+
+                              <div
+                                class="flex justify-center items-center bg-white border-2 relative w-full h-10 overflow-hidden cursor-pointer mt-2 rounded"
+                              >
+                                <select
+                                  class="w-full outline-none text-gray-800 py-2 px-4 appearance-none"
+                                >
+                                  <option
+                                    value=""
+                                    class="text-gray-800 hover:bg-gray-600 toutline-none"
+                                  >
+                                    Choose
+                                  </option>
+                                  <option
+                                    value="Shopping"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Shopping
+                                  </option>
+                                  <option
+                                    value="Housing"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Housing
+                                  </option>
+                                  <option
+                                    value="Food"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Food & Drinks
+                                  </option>
+                                  <option
+                                    value="Vehicle"
+                                    class="text-gray-800 hover:bg-indigo-800 outline-none"
+                                  >
+                                    Vehicle
+                                  </option>
+                                </select>
+                                <div
+                                  class="flex absolute w-10 h-full top-0 right-0 text-slate-700 text-sm pointer-events-none"
+                                >
+                                  <i
+                                    class="fa-solid fa-caret-down m-auto"
+                                  ></i>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="flex justify-between space-x-2">
+                              <div class="grow">
+                                <div>
+                                      <span class="text-gray-800 text-sm"
+                                      >Date</span
+                                      >
+                                  <div
+                                    class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                  >
+                                        <span class="capitalize"
+                                        >feb 14, 2024</span
+                                        >
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div>
+                                <div class="w-full">
+                                      <span class="text-gray-800 text-sm"
+                                      >Time</span
+                                      >
+                                  <div
+                                    class="flex text-gray-600 justify-center items-center mt-2 px-3 h-10 w-full border-2 rounded"
+                                  >
+                                    <span class="uppercase">4:45 pm</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-full">
+                              <label
+                                class="text-gray-800 text-sm"
+                                for="notes"
+                              >Note</label
+                              >
+                              <textarea
+                                id="notes"
+                                class="mt-1 w-full p-2 border-2 rounded outline-none"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center space-y-4">
+                      <button
+                        type="submit"
+                        class="w-1/6 capitalize font-bold px-4 py-1 rounded bg-customBlue text-white"
+                      >
+                        add record
+                      </button>
+                      <a
+                        class="text-sm leading-3 underline text-customBlue"
+                        href="#"
+                      >Add and create another</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+      <!-- end header modal section -->
+      <div class="flex items-center space-x-4">
+            <span class="text-2xl">
+              <i class="fa-regular cursor-pointer text-bgDark fa-bell"></i>
+            </span>
+        <div class="space-x-2 flex">
+          <div class="w-8 h-8 rounded-full">
+            <img
+              class="w-full cursor-pointer"
+              src="image/header-user.png"
+              alt="user-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile screen -->
+    <div id="hamburger" class="lg:hidden cursor-pointer z-50">
+      <i id="header-bars" class="fa-solid fa-bars"></i>
+    </div>
+    <!-- responsive nav hidden -->
+    <div id="menu" class="hidden bg-white h-[100vh] absolute inset-0">
+      <ul class="h-full grid place-items-center py-20">
+        <li>
+          <a
+            hLink
+            href="index.html"
+            class="hover:text-green-600 ease-in duration-200"
+          >
+            <img
+              class="w-12"
+              src="image/header-wallet.png"
+              alt="header-logo-wallet"
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            hLink
+            href="index.html"
+            class="hover:text-green-600 ease-in duration-200"
+          >dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            hLink
+            href="accounts.html"
+            class="hover:text-green-600 ease-in duration-200"
+          >accounts</a
+          >
+        </li>
+        <li>
+          <a
+            hLink
+            href="records.html"
+            class="hover:text-green-600 ease-in duration-200"
+          >records</a
+          >
+        </li>
+        <li>
+          <a
+            hLink
+            href="analytics.html"
+            class="hover:text-green-600 ease-in duration-200"
+          >analytics</a
+          >
+        </li>
+        <!--                <li><a hLink href="investments.html"-->
+        <!--                       class="hover:text-green-600 ease-in duration-200">investments</a>-->
+        <!--                </li>-->
+        <li>
+          <a
+            hLink
+            href="imports.html"
+            class="hover:text-green-600 ease-in duration-200"
+          >imports</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- end header section -->
+
+
+<!-- start select month -->
+<section class="bg-[#eff0f2] p-5 sticky top-[64px] lg:top-20 z-10">
+  <div class="container">
+    <div class="flex items-center divide-x-2 justify-center">
+      <button
+        class="flex cursor-pointer items-center w-40 h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-s-lg bg-white"
+      >
+        <span class="p-4 text-sm mx-auto">Previous month</span>
+      </button>
+      <button
+        class="flex cursor-pointer items-center w-40 h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-e-lg bg-white"
+      >
+        <span class="p-4 text-sm mx-auto">This month</span>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- end select month -->
+
+<!-- start body chart section -->
+<section class="bg-[#eff0f2] pt-0 p-4">
+  <div class="flex sm:flex-row flex-col md:space-x-5 space-y-5 md:space-y-0">
+    <!-- start grid said bar analytics -->
+    <div class="w-80 rounded">
+
+      <div class="text-2xl font-bold capitalize p-5 text-[#477fd8]">
+        Analytics
+      </div>
+
+      <!-- search option -->
+      <div class="w-[85%] shadow-lg  h-10 flex items-center  rounded overflow-hidden mx-auto">
+                    <span class="py-[100%] px-3 bg-white rounded-s cursor-pointer text-[#9a9fa8]"><i
+                      class="ri-search-line"></i></span>
+        <input type="text" class="h-full w-full rounded-e py-1 px-0 outline-none text-[#9a9fa8]"
+               placeholder="Search">
+      </div>
+
+      <!-- start filter section -->
+      <div class="mt-10">
+        <span class="text-sm font-[450] p-5 text-[#354052] uppercase">filter</span>
+        <div
+          class="flex justify-between items-center p-3 w-[88%] h-10 border border-[#b8b8b8da] rounded text-[#b8b8b8da] shadow-md bg-[#333] select-none mt-2 mx-auto">
+          <span class="text-sm cursor-default text-white">No saved filters</span>
+          <span><i class="fa-solid fa-caret-down text-[11px]"></i></span>
+        </div>
+      </div>
+
+      <!-- start side menu list -->
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i> accounts</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">all</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i> categories</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">all</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i> labels</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">none</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i> currencies</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">all</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i> record types</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">all</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i>payment types</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">all</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center w-[90%] h-10 text-[#b8b8b8da] select-none mx-auto">
+                        <span class="text-[14px] cursor-default text-[#354052] uppercase font-[500] "><i
+                          class="ri-arrow-right-s-line text-[1.1rem]"></i> record states</span>
+          <span class="capitalize font-[500] text-[#007aff] text-sm">all</span>
+        </div>
+      </div>
+      <!--end side menu list-->
+
+    </div><!-- end col-span-1 div side bar -->
+
+    <!-- start grid body analytics -->
+    <div class="w-full bg-[#fafbfc] rounded overflow-hidden">
+
+      <div class="bg-[#F4A261] px-10 capitalize py-3">
+        <a href="#" class="font-[500] text-[white] hover:no-underline underline">incomes & expenses report
+          <i class="fa-solid fa-caret-down text-[11px] text-[#7f8fa4]"></i></a>
+      </div>
+      <!-- start  Incomes & Expenses Report-->
+      <div class="py-5 px-10"><!-- header -->
+        <h2 class="font-[500] text-3xl text-center text-[#354052] rounded-md capitalize py-5">incomes &
+          expenses report
+        </h2>
+        <div class="flex flex-col sm:flex-row justify-content-between gap-4 py-3">
+          <div class="analytics-month  bg-[white] rounded-md shadow-md py-3 px-3 min-h[100px] sm:w-[50%]">
+            <h1 class="text-center text-[1.1rem] w-[100px] font-semibold mx-auto ">This month</h1>
+            <div class="flex justify-between">
+              <div class="w-[180px]" id="chart">
+              </div>
+              <div class="analytics-amount">
+                <div class="next-alalytic font-bold flex flex-col ml-3">
+                                        <span class="text-[1.8rem] text-[red]"><i
+                                          class="ri-arrow-up-s-line text-2xl"></i></span>
+                  <span class="text-[1.8rem] text-[blue]"><i
+                    class="ri-arrow-down-s-line text-2xl"></i></span>
+                </div>
+              </div>
+
+              <div class="mt-[0.5rem] tracking-wider font-semibold text-[1.2rem] tracking-wide">
+                <p class="leading-8 text-[red] mb-2">$1430.00</p>
+                <p class="leading-8 text-[blue]">-$1430.00</p>
+                <hr class="">
+                <p class="leading-8 text-[orange]">$309430.93</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-[#90E0EF] px-3 py-3  rounded-md sm:w-[50%]">
+            <h1 class="w-[100px] mx-auto font-semibold">Last month</h1>
+            <div class="flex justify-between">
+              <div>
+                <p class="capitalize text-[15px] text-[#9a9fa8] mb-3 text-[white]">Jan 20-Feb 18</p>
+                <span class="uppercase text-[#354052] font-[600] text-2xl">bdt <span
+                  class="text-[#E01A41]">15,000.00</span></span>
+                <p class="uppercase text-[#354052] font-[600] mt-3 text-1xl">Wallet bdt 15,000.00
+                </p>
+              </div>
+              <div id="analytics-chart" class="mt-3" style="max-width: 200px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- start table -->
+        <div class="mt-5">
+
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-right rtl:text-right">
+              <thead class="text-xs text-gray-700 capitalize bg-gray-50 text-[14px]">
+              <tr>
+                <th scope="col" rowspan="2" class="px-6 py-3 text-left">
+
+                </th>
+                <th scope="col" class="px-6 text-[1.1rem] py-4">
+                  Current period
+                </th>
+                <th scope="col" class="px-6 text-[1.1rem] py-4">
+                  Previous period
+                </th>
+                <th scope="col" class="px-6 py-3">
+
+                </th>
+
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="border-b border-[#bebebe] bg-[#eff0f2]">
+
+                <td scope="row"
+                    class="px-6 py-4 font-[400] text-left  whitespace-nowrap items-center flex">
+
+                  Total Income
+
+                </td>
+                <td class="px-6 py-3 uppercase font-[450]">
+
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-3 uppercase font-[400]">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-3">
+
+                </td>
+              </tr>
+
+              <tr class="border-b relative hover:bg-[#eff0f2] text-[#333]">
+
+                <td scope="row" class="px-6 py-4 text-left items-center flex">
+
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#fbc02d] text-white text-[15px] mr-3">
+                    <i class="ri-coins-line"></i>
+                  </div>
+
+
+                  Income
+                </td>
+                <td class="px-6 py-4 text-right uppercase relative">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div><!--end table first-->
+
+          <div class="relative overflow-x-auto"><!--start second table -->
+            <table class="w-full text-sm text-right rtl:text-right">
+              <thead class="text-xs text-gray-700 capitalize bg-gray-50 text-[14px]">
+              <tr>
+                <th scope="col" rowspan="2" class="px-6 py-3 text-left">
+
+                </th>
+                <th scope="col" class="px-6 py-3 text-[1.1rem] relative">
+
+                  Current period
+                </th>
+                <th scope="col" class="px-6 text-[1.1rem] py-3">
+                  Previous period
+                </th>
+                <th scope="col" class="px-6 py-3">
+
+                </th>
+
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="border-b border-slate-500 bg-[#eff0f2]">
+                <td scope="row"
+                    class="px-6 py-3 font-[400] text-left  whitespace-nowrap items-center flex">
+                  Total Expense
+                </td>
+                <td class="px-6 py-3 uppercase font-[450]">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-3 uppercase font-[400]">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-3">
+
+                </td>
+              </tr>
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#f44336] text-white text-[15px] mr-3">
+                    <i class="ri-bread-fill"></i>
+                  </div>
+                  Food & Drinks
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#4fc3f7] text-white text-[15px] mr-3">
+                    <i class="ri-shopping-cart-2-fill"></i>
+                  </div>
+                  Shopping
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#ffa726] text-white text-[15px] mr-3">
+                    <i class="ri-home-8-fill"></i>
+                  </div>
+                  Housing
+                </td>
+                <td class="px-6 py-4 text-right uppercase text-[#333] font-[450]">
+                  bdt 15000.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase text-[#333] font-[450]">
+                  bdt 15000.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#333] text-white text-[15px] mr-3">
+                    <i class="ri-roadster-fill"></i>
+                  </div>
+                  Transportation
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#4fc3f7] text-white text-[15px] mr-3">
+                    <i class="ri-dv-line"></i>
+                  </div>
+                  Vehicle
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+
+
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#f44336] text-white text-[15px] mr-3">
+                    <i class="ri-lifebuoy-line"></i>
+                  </div>
+                  Life and Entertainment
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+
+
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#4fc3f7] text-white text-[15px] mr-3">
+                    <i class="ri-speak-fill"></i>
+                  </div>
+                  Communication,PC
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#fbc02d] text-white text-[15px] mr-3">
+                    <i class="ri-exchange-dollar-fill"></i>
+                  </div>
+                  Finalcial expense
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[#78909c] text-white text-[15px] mr-3">
+                    <i class="ri-building-fill"></i>
+                  </div>
+                  Investments
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-400 hover:bg-[#eff0f2] text-[#333]">
+                <td scope="row" class="px-6 py-3 text-left items-center flex">
+                  <div
+                    class="flex justify-center items-center w-8 h-8 rounded-full bg-[limegreen] text-white text-[15px] mr-3">
+                    <i class="ri-menu-line"></i>
+                  </div>
+                  Others
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4 text-right uppercase">
+                  bdt 0.00
+                </td>
+                <td class="px-6 py-4">
+
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div><!-- end second table -->
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
