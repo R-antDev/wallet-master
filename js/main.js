@@ -222,3 +222,41 @@ const cConfig = {
 const cchart = new ApexCharts(document.querySelector('#pie-chart'), cConfig);
 
 cchart.render();
+
+//
+const recordModalContent = document.getElementById('record-modal-content');
+const btnOpenRecordModal = document.getElementById('btn-open-record-modal');
+btnOpenRecordModal.addEventListener('click', () => {
+  openModal('record-modal');
+  anime({
+    targets: recordModalContent,
+    opacity: [0, 1],
+    scale: [0.7, 1],
+    duration: 200,
+    easing: 'easeOutCubic',
+  });
+});
+
+const btnCloseRecordModal = document.getElementById('btn-close-record-modal');
+btnCloseRecordModal.addEventListener('click', () => {
+  anime({
+    targets: recordModalContent,
+    opacity: [1, 0],
+    scale: [1, 0.7],
+    duration: 200,
+    easing: 'easeInCubic',
+    complete: function () {
+      closeModal('record-modal');
+    },
+  });
+});
+
+// for modal
+
+function openModal(modal) {
+  document.getElementById(modal).classList.remove('hidden');
+}
+
+function closeModal(modal) {
+  document.getElementById(modal).classList.add('hidden');
+}
