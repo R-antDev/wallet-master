@@ -223,7 +223,7 @@ const cchart = new ApexCharts(document.querySelector('#pie-chart'), cConfig);
 
 cchart.render();
 
-//
+// create record modal
 const recordModalContent = document.getElementById('record-modal-content');
 const btnOpenRecordModal = document.getElementById('btn-open-record-modal');
 btnOpenRecordModal.addEventListener('click', () => {
@@ -251,7 +251,7 @@ btnCloseRecordModal.addEventListener('click', () => {
   });
 });
 
-// for modal
+// modal open and close
 
 function openModal(modal) {
   document.getElementById(modal).classList.remove('hidden');
@@ -260,3 +260,90 @@ function openModal(modal) {
 function closeModal(modal) {
   document.getElementById(modal).classList.add('hidden');
 }
+
+// income and expanse form selection
+const expenseTab = document.getElementById('expense-tab');
+const incomeTab = document.getElementById('income-tab');
+const expenseForm = document.getElementById('form-expense');
+const incomeForm = document.getElementById('form-income');
+
+expenseTab.addEventListener('click', () => {
+  anime({
+    targets: '#form-income',
+    opacity: 0,
+    translateX: -100,
+    duration: 300,
+    easing: 'easeInOutQuad',
+    complete: function () {
+      incomeForm.classList.add('hidden');
+      expenseForm.classList.remove('hidden');
+      anime({
+        targets: '#form-expense',
+        opacity: [0, 1],
+        translateX: [100, 0],
+        duration: 300,
+        easing: 'easeInOutQuad',
+      });
+    },
+  });
+
+  expenseTab.classList.add('bg-green-700', 'text-white');
+  incomeTab.classList.remove('bg-green-700', 'text-white');
+  expenseTab.classList.remove('text-green-700');
+  incomeTab.classList.add('text-green-700');
+});
+
+incomeTab.addEventListener('click', () => {
+  anime({
+    targets: '#form-expense',
+    opacity: 0,
+    translateX: -100,
+    duration: 300,
+    easing: 'easeInOutQuad',
+    complete: function () {
+      expenseForm.classList.add('hidden');
+      incomeForm.classList.remove('hidden');
+      anime({
+        targets: '#form-income',
+        opacity: [0, 1],
+        translateX: [100, 0],
+        duration: 300,
+        easing: 'easeInOutQuad',
+      });
+    },
+  });
+
+  incomeTab.classList.add('bg-green-700', 'text-white');
+  expenseTab.classList.remove('bg-green-700', 'text-white');
+  incomeTab.classList.remove('text-green-700');
+  expenseTab.classList.add('text-green-700');
+});
+
+// add wallet model
+
+const btnOpenAddWalletModal = document.getElementById('btn-open-wallet-modal');
+
+btnOpenAddWalletModal.addEventListener('click', () => {
+  anime({
+    targets: '#add-wallet-content',
+    opacity: [0, 1],
+    scale: [0.7, 1],
+    duration: 200,
+    easing: 'easeOutCubic',
+  });
+  openModal('add-wallet-modal');
+});
+
+const btnCloseWalletModal = document.getElementById('btn-close-wallet-model');
+btnCloseWalletModal.addEventListener('click', () => {
+  anime({
+    targets: '#add-wallet-content',
+    opacity: [1, 0],
+    scale: [1, 0.7],
+    duration: 200,
+    easing: 'easeInCubic',
+    complete: function () {
+      closeModal('add-wallet-modal');
+    },
+  });
+});

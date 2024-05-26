@@ -189,31 +189,24 @@
             <i class="fa-solid fa-circle-xmark"></i>
           </button>
         </div>
-        <div class="space-y-4">
-          <!--            input and expense form selection-->
+        <div class="space-y-4 p-6">
+          <!-- Input and expense form selection -->
           <div class="flex items-center space-x-2 border-b">
-            <button
-              id="expense-tab"
-              class="py-2 px-4 border-2 border-customGreen-dark text-customGreen-dark shadow-lg rounded-t-lg"
-            >
+            <button id="expense-tab" class="py-2 px-4 border-2 border-green-700 text-green-700 shadow-lg rounded-t-lg">
               Expense
             </button>
-            <button
-              id="income-tab"
-              class="py-2 px-4 border-2 border-customGreen-dark bg-customGreen-dark text-white rounded-t-lg"
-            >
+            <button id="income-tab" class="py-2 px-4 border-2 border-green-700 bg-green-700 text-white rounded-t-lg">
               Income
             </button>
           </div>
-          <div>
-            <form action="" class="space-y-2 px-6">
+          <div id="form-choice">
+            <!-- Expense Form -->
+            <form id="form-expense" action="" class="space-y-2 px-6">
               <div>
                 <label class="text-gray-800 text-sm">Wallet</label>
                 <div>
                   <label>
-                    <select
-                      class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
-                    >
+                    <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
                       <option value="">Cash</option>
                       <option value="addAccounts">+ Add Accounts</option>
                     </select>
@@ -222,23 +215,14 @@
               </div>
               <div class="flex space-x-4 items-center justify-between">
                 <div class="flex-grow">
-                  <label for="amount" class="text-gray-800 text-sm"
-                  >Amount</label
-                  >
-                  <input
-                    id="amount"
-                    type="number"
-                    class="w-full border py-2 px-4 rounded mt-1"
-                    placeholder="0"
-                  />
+                  <label for="amount" class="text-gray-800 text-sm">Amount</label>
+                  <input id="amount" type="number" class="w-full border py-2 px-4 rounded mt-1" placeholder="0" />
                 </div>
                 <div>
                   <label class="text-gray-800 text-sm">Currency</label>
                   <div>
                     <label>
-                      <select
-                        class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
-                      >
+                      <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
                         <option value="">BDT</option>
                       </select>
                     </label>
@@ -249,9 +233,7 @@
                 <label class="text-gray-800 text-sm">Category</label>
                 <div class="relative">
                   <label>
-                    <select
-                      class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
-                    >
+                    <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
                       <option value="">Choose</option>
                       <option value="Shopping">Shopping</option>
                       <option value="Housing">Housing</option>
@@ -263,39 +245,87 @@
               </div>
               <div class="flex space-x-4 items-center justify-between">
                 <div class="flex-grow">
-                  <label for="date" class="text-gray-800 text-sm"
-                  >Date</label
-                  >
-                  <input
-                    id="date"
-                    type="date"
-                    class="w-full border py-2 px-4 rounded mt-1"
-                  />
+                  <label for="date" class="text-gray-800 text-sm">Date</label>
+                  <input id="date" type="date" class="w-full border py-2 px-4 rounded mt-1" />
                 </div>
                 <div>
-                  <label for="time" class="text-gray-800 text-sm"
-                  >Time</label
-                  >
-                  <input
-                    id="time"
-                    type="time"
-                    class="w-full border py-2 px-4 rounded mt-1"
-                    value="13:30"
-                  />
+                  <label for="time" class="text-gray-800 text-sm">Time</label>
+                  <input id="time" type="time" class="w-full border py-2 px-4 rounded mt-1" value="13:30" />
                 </div>
               </div>
               <div class="space-y-2">
                 <label for="note" class="text-gray-800 text-sm">Note</label>
-                <textarea
-                  id="note"
-                  class="w-full border py-2 px-4 rounded mt-1"
-                ></textarea>
+                <textarea id="note" class="w-full border py-2 px-4 rounded mt-1"></textarea>
               </div>
               <div class="py-4">
-                <button
-                  type="submit"
-                  class="w-full py-2 bg-customGreen-medium text-white rounded hover:bg-customGreen transition-colors duration-300"
-                >
+                <button type="submit"
+                        class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors duration-300">
+                  Add Record
+                </button>
+              </div>
+            </form>
+
+            <!-- Income Form -->
+            <form id="form-income" action="" class="space-y-2 px-6 hidden">
+              <div>
+                <label class="text-gray-800 text-sm">Wallet</label>
+                <div>
+                  <label>
+                    <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
+                      <option value="">Cash</option>
+                      <option value="addAccounts">+ Add Accounts</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div class="flex space-x-4 items-center justify-between">
+                <div class="flex-grow">
+                  <label for="income-amount" class="text-gray-800 text-sm">Amount</label>
+                  <input id="income-amount" type="number" class="w-full border py-2 px-4 rounded mt-1"
+                         placeholder="0" />
+                </div>
+                <div>
+                  <label class="text-gray-800 text-sm">Currency</label>
+                  <div>
+                    <label>
+                      <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
+                        <option value="">BDT</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm">Source</label>
+                <div class="relative">
+                  <label>
+                    <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
+                      <option value="">Choose</option>
+                      <option value="Salary">Salary</option>
+                      <option value="Business">Business</option>
+                      <option value="Gift">Gift</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div class="flex space-x-4 items-center justify-between">
+                <div class="flex-grow">
+                  <label for="income-date" class="text-gray-800 text-sm">Date</label>
+                  <input id="income-date" type="date" class="w-full border py-2 px-4 rounded mt-1" />
+                </div>
+                <div>
+                  <label for="income-time" class="text-gray-800 text-sm">Time</label>
+                  <input id="income-time" type="time" class="w-full border py-2 px-4 rounded mt-1" value="13:30" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label for="income-note" class="text-gray-800 text-sm">Note</label>
+                <textarea id="income-note" class="w-full border py-2 px-4 rounded mt-1"></textarea>
+              </div>
+              <div class="py-4">
+                <button type="submit"
+                        class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors duration-300">
                   Add Record
                 </button>
               </div>
@@ -352,12 +382,96 @@
       <div
         class="cursor-pointer py-5 px-5 md:py-0 md:px-5 border-2 border-dashed border-gray-500 rounded-xl text-gray-500 flex hover:border-customBlue hover:text-customBlue hover:scale-105 transition-transform duration-300"
       >
-        <button class="p-3 capitalize m-auto">&plus; new wallet</button>
+        <button id="btn-open-wallet-modal" class="p-3 capitalize m-auto">&plus; new wallet</button>
       </div>
     </div>
   </div>
 </section>
 <!-- end add accounts section -->
+<!--new wallet model start-->
+
+<div id="add-wallet-modal" class="hidden">
+  <div class="z-50 absolute flex items-center justify-center h-screen">
+    <div
+      class="fixed inset-0 bg-gray-800 bg-opacity-30 backdrop-blur-sm flex items-center justify-center"
+    >
+      <!-- Modal -->
+      <div
+        id="add-wallet-content"
+        class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+        <div class="flex justify-center items-center border-b">
+          <h2 class="text-2xl font-bold mb-4 capitalize">new wallet</h2>
+        </div>
+        <div class="space-y-4">
+          <div class="px-6 space-y-4">
+            <form action="" class="mt-6 space-y-6">
+              <div class="flex space-x-4 items-center justify-between">
+                <div class="flex-grow">
+                  <label for="name" class="text-gray-800 text-sm">Name</label>
+                  <input id="name" type="text" class="w-full border py-2 px-4 rounded mt-1" placeholder="Wallet Name" />
+                </div>
+                <div>
+                  <label for="wallet-color" class="text-gray-800 text-sm">Color</label>
+                  <input
+                    type="color"
+                    class="w-full border bg-white px-4 py-1 rounded mt-1"
+                    id="wallet-color"
+                    value="#2563eb"
+                    title="Choose your color"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="accountType" class="block text-gray-700"
+                >Account Type</label
+                >
+                <select
+                  id="accountType"
+                  name="accountType"
+                  class="w-full px-4 py-2 border rounded"
+                >
+                  <option value="savings">Savings</option>
+                  <option value="checking">Checking</option>
+                  <option value="business">Business</option>
+                </select>
+              </div>
+              <div class="flex space-x-4 items-center justify-between">
+                <div class="flex-grow">
+                  <label for="balance" class="text-gray-800 text-sm">Initial Balance</label>
+                  <input id="balance" type="number" class="w-full border py-2 px-4 rounded mt-1" />
+                </div>
+                <div>
+                  <label class="text-gray-800 text-sm">Currency</label>
+                  <div>
+                    <label>
+                      <select class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1">
+                        <option value="">BDT</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="flex space-x-4  items-center justify-between">
+                <button type="submit"
+                        class="w-full py-2 bg-customGreen-medium text-white rounded hover:bg-customGreen transition-colors duration-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
+                  Create Wallet
+                </button>
+              </div>
+            </form>
+            <div>
+              <button id="btn-close-wallet-model"
+                      class="w-full py-2 bg-customOrange-dark text-white rounded hover:bg-customOrange duration-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--new wallet model finish-->
 
 <!-- start select month -->
 <section class="bg-[#eff0f2] p-5 sticky top-[64px] lg:top-20 z-10">
