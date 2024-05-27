@@ -347,3 +347,22 @@ btnCloseWalletModal.addEventListener('click', () => {
     },
   });
 });
+
+// notification modal
+const btnNotification = document.getElementById('btn-notification');
+btnNotification.addEventListener('click', () => {
+  console.log('notification clicked');
+  openModal('notification-modal');
+});
+
+const btnCloseNotification = document.getElementById('btn-close-notification');
+btnCloseNotification.addEventListener('click', () => {
+  closeModal('notification-modal');
+});
+
+const notificationModalBackground = document.getElementById(
+  'notification-modal-background'
+);
+notificationModalBackground.addEventListener('click', () => {
+  closeModal('notification-modal');
+});
