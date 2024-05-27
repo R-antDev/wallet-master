@@ -100,7 +100,7 @@
       </div>
     </div>
     <!-- Mobile screen -->
-    <div id="hamburger" class="lg:hidden cursor-pointer z-50">
+    <div id="hamburger" class="lg:hidden cursor-pointer z-10">
       <i id="header-bars" class="fa-solid fa-bars"></i>
     </div>
     <!-- responsive nav hidden -->
@@ -167,73 +167,68 @@
   </nav>
   <!--  notification modal start-->
   <div id="notification-modal" class="hidden z-50">
-    <div id="notification-modal-background" class="fixed inset-0 bg-black bg-opacity-10 flex  justify-end ">
+    <div id="notification-modal-background"
+         class="fixed inset-0 bg-opacity-10 flex justify-center md:justify-end drop-shadow-2xl">
       <!-- Modal Content -->
-      <div class="bg-white rounded-lg shadow-lg w-1/3 p-6 mt-10 mb-10 mr-8">
+      <div
+        class="bg-white rounded-lg shadow-lg w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-4 sm:p-6 mt-16 mb-20 mx-4 sm:mx-6 lg:mr-44">
         <div class="flex justify-between items-center border-b pb-2">
-          <h2 class="text-xl font-semibold text-gray-800">Notifications</h2>
-          <button id="btn-close-notification" class="text-gray-500 text-2xl hover:text-gray-800">&times;</button>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Notifications</h2>
+          <button id="btn-close-notification" class="text-gray-500 text-3xl hover:text-gray-800">&times;</button>
         </div>
         <div class="divide-y mt-4">
           <div class="mt-4 text-gray-600 p-2 rounded bg-bgLight">
-            <div class="pt-4">
+            <div class="pt-2">
               <div class="flex">
-                <div class="w-10 h-10 bg-customOrange rounded-full mr-2 flex justify-center items-center"
-                ><i class=" p-2 fa-solid fa-building-wheat text-bgLight"></i>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-customOrange rounded-full mr-2 flex justify-center items-center">
+                  <i class="p-2 fa-solid fa-building-wheat text-bgLight"></i>
                 </div>
                 <div class="flex justify-between w-full">
-                  <div class="flex flex-col">
+                  <div class="flex flex-col text-sm sm:text-base">
                     <span class="text-gray-800 capitalize">bank loan</span>
-                    <div class="text-customBlue-dark text-sm">
-                      <i
-                        class="fa-solid fa-circle text-[10px] text-[#6a1b9a]"
-                      ></i>
+                    <div class="text-customBlue-dark text-xs sm:text-sm">
+                      <i class="fa-solid fa-circle text-[8px] sm:text-[10px] text-[#6a1b9a]"></i>
                       <span>Cash</span>
                     </div>
                   </div>
-                  <div class="flex flex-col">
-                  <span class="text-customBlue-dark font-bold uppercase"
-                  >bdt 5,000</span
-                  >
-                    <span class="text-[#545d68] text-sm">6 hours ago</span>
+                  <div class="flex flex-col text-sm sm:text-base">
+                    <span class="text-customBlue-dark font-bold uppercase">bdt 5,000</span>
+                    <span class="text-[#545d68] text-xs sm:text-sm">6 hours ago</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="mt-4 text-gray-600 p-2 rounded bg-bgLight">
-            <div class="pt-4">
+            <div class="pt-2">
               <div class="flex">
-                <div class="w-10 h-10 bg-customOrange rounded-full mr-2 flex justify-center items-center"
-                ><i class=" p-2 fa-solid fa-building-wheat text-bgLight"></i>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-customOrange rounded-full mr-2 flex justify-center items-center">
+                  <i class="p-2 fa-solid fa-building-wheat text-bgLight"></i>
                 </div>
                 <div class="flex justify-between w-full">
-                  <div class="flex flex-col">
+                  <div class="flex flex-col text-sm sm:text-base">
                     <span class="text-gray-800 capitalize">bank loan</span>
-                    <div class="text-customBlue-dark text-sm">
-                      <i
-                        class="fa-solid fa-circle text-[10px] text-[#6a1b9a]"
-                      ></i>
+                    <div class="text-customBlue-dark text-xs sm:text-sm">
+                      <i class="fa-solid fa-circle text-[8px] sm:text-[10px] text-[#6a1b9a]"></i>
                       <span>Cash</span>
                     </div>
                   </div>
-                  <div class="flex flex-col">
-                  <span class="text-customBlue-dark font-bold uppercase"
-                  >bdt 5,000</span
-                  >
-                    <span class="text-[#545d68] text-sm">6 hours ago</span>
+                  <div class="flex flex-col text-sm sm:text-base">
+                    <span class="text-customBlue-dark font-bold uppercase">bdt 5,000</span>
+                    <span class="text-[#545d68] text-xs sm:text-sm">6 hours ago</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="flex justify-end mt-10 border-t pe-2">
+        <div class="flex justify-end mt-6 sm:mt-10 border-t pt-2">
           <button class="text-sm text-gray-600 mt-2 hover:text-bgDark">Clear all</button>
         </div>
       </div>
     </div>
   </div>
+
   <!--  notification modal end-->
 </header>
 <!-- end header section -->
@@ -410,10 +405,10 @@
 
 <!-- start add accounts section -->
 <section class="bg-[#fafbfc] flex items-center py-8">
-  <div class="container 2xl:w-[90%]">
-    <div class="flex items-center space-x-6">
+  <div class="container mx-auto px-4 2xl:w-[90%]">
+    <div class="flex flex-wrap items-center space-y-4 md:space-y-0 md:space-x-6">
       <div
-        class="bg-customBlue-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer"
+        class="bg-customBlue-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
       >
         <div class="text-white text-2xl mr-3">
           <i class="fa-solid fa-money-check-dollar"></i>
@@ -425,7 +420,7 @@
         </div>
       </div>
       <div
-        class="bg-customGreen p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer"
+        class="bg-customGreen p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
       >
         <div class="text-white text-2xl mr-3">
           <i class="fa-solid fa-building-columns"></i>
@@ -437,7 +432,7 @@
         </div>
       </div>
       <div
-        class="bg-customOrange-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer"
+        class="bg-customOrange-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
       >
         <div class="text-white text-2xl mr-3">
           <i class="fa-regular fa-credit-card"></i>
@@ -448,14 +443,15 @@
           <h2 class="uppercase text-bgMedium">bdt</h2>
         </div>
       </div>
-      <div
-        class="cursor-pointer py-5 px-5 md:py-0 md:px-5 border-2 border-dashed border-gray-500 rounded-xl text-gray-500 flex hover:border-customBlue hover:text-customBlue hover:scale-105 transition-transform duration-300"
+      <div id="btn-open-wallet-modal"
+           class="border-2 border-dashed border-gray-500 p-3 drop-shadow-xl rounded-xl text-gray-500 transition-colors hover:border-customBlue hover:text-customBlue duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
       >
-        <button id="btn-open-wallet-modal" class="p-3 capitalize m-auto">&plus; new wallet</button>
+        <button class="capitalize lg:px-5 m-auto">&plus; new wallet</button>
       </div>
     </div>
   </div>
 </section>
+
 <!-- end add accounts section -->
 <!--new wallet model start-->
 
