@@ -32,7 +32,7 @@
           src="image/header-wallet.png"
           alt="header-logo-wallet"
         />
-        <span class="lg:text-xl text-sm font-bold">Wallet Master</span>
+        <span class="lg:text-xl md:block hidden font-bold">Wallet Master</span>
       </a>
     </div>
     <div class="flex items-center space-x-4">
@@ -80,11 +80,11 @@
     <div class="flex justify-center items-center space-x-4">
       <button
         id="btn-open-record-modal"
-        class="capitalize py-1 px-2 lg:py-2 text-xs lg:px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white lg:text-sm rounded-xl cursor-pointer"
+        class="capitalize py-2 text-xs px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white lg:text-sm rounded-xl cursor-pointer"
       >
         &plus; record
       </button>
-      <div class="flex items-center lg:space-x-4 space-x-2">
+      <div class="flex items-center space-x-4">
         <button id="btn-notification" class="lg:text-2xl text-xl">
           <i class="fa-regular cursor-pointer text-bgDark fa-bell"></i>
         </button>
@@ -124,72 +124,6 @@
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
-
-    <!--    &lt;!&ndash; Mobile screen &ndash;&gt;-->
-    <!--    <div id="hamburger" class="lg:hidden cursor-pointer z-10">-->
-    <!--      <i id="header-bars" class="fa-solid fa-bars"></i>-->
-    <!--    </div>-->
-    <!--    &lt;!&ndash; responsive nav hidden &ndash;&gt;-->
-    <!--    <div id="menu" class="hidden bg-white h-[100vh] absolute inset-0">-->
-    <!--      <ul class="h-full grid place-items-center py-20">-->
-    <!--        <li>-->
-    <!--          <a-->
-    <!--            hLink-->
-    <!--            href="index.html"-->
-    <!--            class="hover:text-green-600 ease-in duration-200"-->
-    <!--          >-->
-    <!--            <img-->
-    <!--              class="w-12"-->
-    <!--              src="image/header-wallet.png"-->
-    <!--              alt="header-logo-wallet"-->
-    <!--            />-->
-    <!--          </a>-->
-    <!--        </li>-->
-    <!--        <li>-->
-    <!--          <a-->
-    <!--            hLink-->
-    <!--            href="index.html"-->
-    <!--            class="hover:text-green-600 ease-in duration-200"-->
-    <!--          >dashboard</a-->
-    <!--          >-->
-    <!--        </li>-->
-    <!--        <li>-->
-    <!--          <a-->
-    <!--            hLink-->
-    <!--            href="accounts.html"-->
-    <!--            class="hover:text-green-600 ease-in duration-200"-->
-    <!--          >accounts</a-->
-    <!--          >-->
-    <!--        </li>-->
-    <!--        <li>-->
-    <!--          <a-->
-    <!--            hLink-->
-    <!--            href="records.html"-->
-    <!--            class="hover:text-green-600 ease-in duration-200"-->
-    <!--          >records</a-->
-    <!--          >-->
-    <!--        </li>-->
-    <!--        <li>-->
-    <!--          <a-->
-    <!--            hLink-->
-    <!--            href="analytics.html"-->
-    <!--            class="hover:text-green-600 ease-in duration-200"-->
-    <!--          >analytics</a-->
-    <!--          >-->
-    <!--        </li>-->
-    <!--        &lt;!&ndash;                <li><a hLink href="investments.html"&ndash;&gt;-->
-    <!--        &lt;!&ndash;                       class="hover:text-green-600 ease-in duration-200">investments</a>&ndash;&gt;-->
-    <!--        &lt;!&ndash;                </li>&ndash;&gt;-->
-    <!--        <li>-->
-    <!--          <a-->
-    <!--            hLink-->
-    <!--            href="imports.html"-->
-    <!--            class="hover:text-green-600 ease-in duration-200"-->
-    <!--          >imports</a-->
-    <!--          >-->
-    <!--        </li>-->
-    <!--      </ul>-->
-    <!--    </div>-->
   </nav>
   <!--  notification modal start-->
   <div id="notification-modal" class="hidden z-50">
@@ -268,7 +202,7 @@
       <!-- Modal -->
       <div
         id="record-modal-content"
-        class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative"
+        class="bg-white rounded-lg shadow-lg max-w-lg w-[90%] p-6 relative"
       >
         <div class="flex justify-between items-center">
           <h2 class="text-2xl font-bold mb-4">Add New Record</h2>
@@ -279,19 +213,20 @@
             <i class="fa-solid fa-circle-xmark"></i>
           </button>
         </div>
-        <div class="space-y-4 p-6">
+        <div class="space-y-4 lg:p-6">
           <!-- Input and expense form selection -->
           <div class="flex items-center space-x-2 border-b">
             <button id="expense-tab" class="py-2 px-4 border-2 border-green-700 text-green-700 shadow-lg rounded-t-lg">
               Expense
             </button>
-            <button id="income-tab" class="py-2 px-4 border-2 border-green-700 bg-green-700 text-white rounded-t-lg">
+            <button id="income-tab"
+                    class="py-2 px-4 border-2 border-green-700 bg-green-700 text-white shadow-lg rounded-t-lg">
               Income
             </button>
           </div>
           <div id="form-choice">
             <!-- Expense Form -->
-            <form id="form-expense" action="" class="space-y-2 px-6">
+            <form id="form-expense" action="" class="space-y-2 lg:px-6">
               <div>
                 <label class="text-gray-800 text-sm">Wallet</label>
                 <div>
@@ -303,8 +238,8 @@
                   </label>
                 </div>
               </div>
-              <div class="flex space-x-4 items-center justify-between">
-                <div class="flex-grow">
+              <div class="lg:flex lg:space-x-4 space-y-2 lg:space-y-0 items-center justify-between">
+                <div class="lg:flex-grow">
                   <label for="amount" class="text-gray-800 text-sm">Amount</label>
                   <input id="amount" type="number" class="w-full border py-2 px-4 rounded mt-1" placeholder="0" />
                 </div>
@@ -333,7 +268,7 @@
                   </label>
                 </div>
               </div>
-              <div class="flex space-x-4 items-center justify-between">
+              <div class="lg:flex lg:space-x-4 items-center justify-between">
                 <div class="flex-grow">
                   <label for="date" class="text-gray-800 text-sm">Date</label>
                   <input id="date" type="date" class="w-full border py-2 px-4 rounded mt-1" />
@@ -489,14 +424,14 @@
       <!-- Modal -->
       <div
         id="add-wallet-content"
-        class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+        class="bg-white rounded-lg shadow-lg max-w-lg w-[90%] p-6 relative">
         <div class="flex justify-center items-center border-b">
           <h2 class="text-2xl font-bold mb-4 capitalize">new wallet</h2>
         </div>
         <div class="space-y-4">
-          <div class="px-6 space-y-4">
+          <div class="lg:px-6 px-2 space-y-4">
             <form action="" class="mt-6 space-y-6">
-              <div class="flex space-x-4 items-center justify-between">
+              <div class="lg:flex lg:space-x-4 items-center justify-between">
                 <div class="flex-grow">
                   <label for="name" class="text-gray-800 text-sm">Name</label>
                   <input id="name" type="text" class="w-full border py-2 px-4 rounded mt-1" placeholder="Wallet Name" />
@@ -526,7 +461,7 @@
                   <option value="business">Business</option>
                 </select>
               </div>
-              <div class="flex space-x-4 items-center justify-between">
+              <div class="lg:flex lg:space-x-4 items-center justify-between">
                 <div class="flex-grow">
                   <label for="balance" class="text-gray-800 text-sm">Initial Balance</label>
                   <input id="balance" type="number" class="w-full border py-2 px-4 rounded mt-1" />
