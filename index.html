@@ -216,11 +216,12 @@
         <div class="space-y-4 lg:p-6">
           <!-- Input and expense form selection -->
           <div class="flex items-center space-x-2 border-b">
-            <button id="expense-tab" class="py-2 px-4 border-2 border-green-700 text-green-700 shadow-lg rounded-t-lg">
+            <button id="expense-tab"
+                    class="py-2 px-4 border-2 border-green-700 bg-green-700 text-white shadow-lg rounded-t-lg">
               Expense
             </button>
             <button id="income-tab"
-                    class="py-2 px-4 border-2 border-green-700 bg-green-700 text-white shadow-lg rounded-t-lg">
+                    class="py-2 px-4 border-2 border-green-700 text-green-700 shadow-lg rounded-t-lg">
               Income
             </button>
           </div>
@@ -239,7 +240,7 @@
                 </div>
               </div>
               <div class="lg:flex lg:space-x-4 space-y-2 lg:space-y-0 items-center justify-between">
-                <div class="lg:flex-grow">
+                <div class="flex-grow">
                   <label for="amount" class="text-gray-800 text-sm">Amount</label>
                   <input id="amount" type="number" class="w-full border py-2 px-4 rounded mt-1" placeholder="0" />
                 </div>
@@ -291,7 +292,7 @@
             </form>
 
             <!-- Income Form -->
-            <form id="form-income" action="" class="space-y-2 px-6 hidden">
+            <form id="form-income" action="" class="space-y-2 lg:px-6 hidden">
               <div>
                 <label class="text-gray-800 text-sm">Wallet</label>
                 <div>
@@ -303,7 +304,7 @@
                   </label>
                 </div>
               </div>
-              <div class="flex space-x-4 items-center justify-between">
+              <div class="lg:flex lg:space-x-4 items-center justify-between">
                 <div class="flex-grow">
                   <label for="income-amount" class="text-gray-800 text-sm">Amount</label>
                   <input id="income-amount" type="number" class="w-full border py-2 px-4 rounded mt-1"
@@ -334,7 +335,7 @@
                   </label>
                 </div>
               </div>
-              <div class="flex space-x-4 items-center justify-between">
+              <div class="lg:flex lg:space-x-4 items-center justify-between">
                 <div class="flex-grow">
                   <label for="income-date" class="text-gray-800 text-sm">Date</label>
                   <input id="income-date" type="date" class="w-full border py-2 px-4 rounded mt-1" />
