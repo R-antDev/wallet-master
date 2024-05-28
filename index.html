@@ -21,18 +21,18 @@
 
 <body class="font-figtree antialiased">
 <!-- start header section -->
-<header class="sticky top-0 z-50 bg-white shadow-sm shadow-[#8b8b8b15]">
+<header class="sticky top-0 z-50 bg-white shadow-lg ">
   <nav
-    class="container 2xl:w-[90%] w-[97%] flex justify-between items-center py-4"
+    class="container 2xl:w-[90%] flex justify-between items-center py-4"
   >
     <div>
       <a class="flex items-center space-x-2" href="index.html">
         <img
-          class="w-12"
+          class="lg:w-12 w-8"
           src="image/header-wallet.png"
           alt="header-logo-wallet"
         />
-        <span class="text-xl font-bold">Wallet Master</span>
+        <span class="lg:text-xl text-sm font-bold">Wallet Master</span>
       </a>
     </div>
     <div class="flex items-center space-x-4">
@@ -77,93 +77,119 @@
         </li>
       </ul>
     </div>
-    <div class="flex items-center space-x-4">
+    <div class="flex justify-center items-center space-x-4">
       <button
         id="btn-open-record-modal"
-        class="capitalize py-2 px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white text-sm rounded-xl cursor-pointer"
+        class="capitalize py-1 px-2 lg:py-2 text-xs lg:px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white lg:text-sm rounded-xl cursor-pointer"
       >
         &plus; record
       </button>
-      <div class="flex items-center space-x-4">
-        <button id="btn-notification" class="text-2xl">
+      <div class="flex items-center lg:space-x-4 space-x-2">
+        <button id="btn-notification" class="lg:text-2xl text-xl">
           <i class="fa-regular cursor-pointer text-bgDark fa-bell"></i>
         </button>
-        <div class="space-x-2 flex">
-          <div class="w-8 h-8 rounded-full">
-            <img
-              class="w-full cursor-pointer"
-              src="image/header-user.png"
-              alt="user-image"
-            />
-          </div>
-        </div>
+        <button id="btn-user" class="lg:text-2xl text-xl">
+          <i class="fa-regular fa-circle-user cursor-pointer text-bgDark"></i>
+        </button>
+        <button id="hamburger" class="lg:text-2xl text-xl">
+          <i id="header-bars" class="fa-solid cursor-pointer text-bgDark fa-bars"></i>
+        </button>
       </div>
     </div>
-    <!-- Mobile screen -->
-    <div id="hamburger" class="lg:hidden cursor-pointer z-10">
-      <i id="header-bars" class="fa-solid fa-bars"></i>
-    </div>
-    <!-- responsive nav hidden -->
-    <div id="menu" class="hidden bg-white h-[100vh] absolute inset-0">
-      <ul class="h-full grid place-items-center py-20">
-        <li>
-          <a
-            hLink
-            href="index.html"
-            class="hover:text-green-600 ease-in duration-200"
-          >
-            <img
-              class="w-12"
-              src="image/header-wallet.png"
-              alt="header-logo-wallet"
-            />
+
+    <!-- Hamburger menu structure -->
+    <div id="menu" class="hidden fixed inset-0 bg-white h-full z-50 transition duration-300 ease-in-out">
+      <ul class="h-full mt-10 flex flex-col space-y-2 px-10 divide-y">
+        <li class="pt-2 mb-4">
+          <a href="index.html" class="flex items-center space-x-2 text-xl">
+            <img class="w-8" src="image/header-wallet.png" alt="header-logo-wallet" />
+            <p class="text-md font-bold">Wallet Master</p>
           </a>
         </li>
-        <li>
-          <a
-            hLink
-            href="index.html"
-            class="hover:text-green-600 ease-in duration-200"
-          >dashboard</a
-          >
+        <li class="pt-2">
+          <a href="index.html" class="hover:text-customBlue text-md">Dashboard</a>
         </li>
-        <li>
-          <a
-            hLink
-            href="accounts.html"
-            class="hover:text-green-600 ease-in duration-200"
-          >accounts</a
-          >
+        <li class="pt-2">
+          <a href="accounts.html" class="text-md hover:text-customBlue">Accounts</a>
         </li>
-        <li>
-          <a
-            hLink
-            href="records.html"
-            class="hover:text-green-600 ease-in duration-200"
-          >records</a
-          >
+        <li class="pt-2">
+          <a href="records.html" class="text-md hover:text-customBlue">Records</a>
         </li>
-        <li>
-          <a
-            hLink
-            href="analytics.html"
-            class="hover:text-green-600 ease-in duration-200"
-          >analytics</a
-          >
-        </li>
-        <!--                <li><a hLink href="investments.html"-->
-        <!--                       class="hover:text-green-600 ease-in duration-200">investments</a>-->
-        <!--                </li>-->
-        <li>
-          <a
-            hLink
-            href="imports.html"
-            class="hover:text-green-600 ease-in duration-200"
-          >imports</a
-          >
+        <li class="pt-2">
+          <a href="analytics.html" class="text-md hover:text-customBlue">Analytics</a>
         </li>
       </ul>
+      <button id="menu-close"
+              class="absolute top-4 right-4 text-xl font-medium hover:text-red-500 focus:outline-none">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
+
+    <!--    &lt;!&ndash; Mobile screen &ndash;&gt;-->
+    <!--    <div id="hamburger" class="lg:hidden cursor-pointer z-10">-->
+    <!--      <i id="header-bars" class="fa-solid fa-bars"></i>-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash; responsive nav hidden &ndash;&gt;-->
+    <!--    <div id="menu" class="hidden bg-white h-[100vh] absolute inset-0">-->
+    <!--      <ul class="h-full grid place-items-center py-20">-->
+    <!--        <li>-->
+    <!--          <a-->
+    <!--            hLink-->
+    <!--            href="index.html"-->
+    <!--            class="hover:text-green-600 ease-in duration-200"-->
+    <!--          >-->
+    <!--            <img-->
+    <!--              class="w-12"-->
+    <!--              src="image/header-wallet.png"-->
+    <!--              alt="header-logo-wallet"-->
+    <!--            />-->
+    <!--          </a>-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--          <a-->
+    <!--            hLink-->
+    <!--            href="index.html"-->
+    <!--            class="hover:text-green-600 ease-in duration-200"-->
+    <!--          >dashboard</a-->
+    <!--          >-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--          <a-->
+    <!--            hLink-->
+    <!--            href="accounts.html"-->
+    <!--            class="hover:text-green-600 ease-in duration-200"-->
+    <!--          >accounts</a-->
+    <!--          >-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--          <a-->
+    <!--            hLink-->
+    <!--            href="records.html"-->
+    <!--            class="hover:text-green-600 ease-in duration-200"-->
+    <!--          >records</a-->
+    <!--          >-->
+    <!--        </li>-->
+    <!--        <li>-->
+    <!--          <a-->
+    <!--            hLink-->
+    <!--            href="analytics.html"-->
+    <!--            class="hover:text-green-600 ease-in duration-200"-->
+    <!--          >analytics</a-->
+    <!--          >-->
+    <!--        </li>-->
+    <!--        &lt;!&ndash;                <li><a hLink href="investments.html"&ndash;&gt;-->
+    <!--        &lt;!&ndash;                       class="hover:text-green-600 ease-in duration-200">investments</a>&ndash;&gt;-->
+    <!--        &lt;!&ndash;                </li>&ndash;&gt;-->
+    <!--        <li>-->
+    <!--          <a-->
+    <!--            hLink-->
+    <!--            href="imports.html"-->
+    <!--            class="hover:text-green-600 ease-in duration-200"-->
+    <!--          >imports</a-->
+    <!--          >-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <!--    </div>-->
   </nav>
   <!--  notification modal start-->
   <div id="notification-modal" class="hidden z-50">
