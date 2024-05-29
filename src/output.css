@@ -660,6 +660,22 @@ video {
   top: 64px;
 }
 
+.left-4 {
+  left: 1rem;
+}
+
+.-right-4 {
+  right: -1rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-6 {
+  right: -1.5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1967,6 +1983,10 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:right-2 {
+    right: 0.5rem;
+  }
+
   .sm\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -2042,6 +2062,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:right-0 {
+    right: 0px;
+  }
+
   .md\:block {
     display: block;
   }
