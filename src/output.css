@@ -906,6 +906,14 @@ video {
   width: 33.333333%;
 }
 
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
 .max-w-lg {
   max-width: 32rem;
 }
@@ -2239,6 +2247,10 @@ video {
     width: 50%;
   }
 
+  .lg\:w-8 {
+    width: 2rem;
+  }
+
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2276,6 +2288,11 @@ video {
   .lg\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .lg\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .lg\:text-2xl {
