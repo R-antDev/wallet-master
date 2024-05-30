@@ -2203,6 +2203,10 @@ video {
     margin-bottom: calc(1rem * var(--tw-space-y-reverse));
   }
 
+  .md\:p-10 {
+    padding: 2.5rem;
+  }
+
   .md\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
