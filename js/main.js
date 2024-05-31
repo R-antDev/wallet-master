@@ -394,3 +394,18 @@ document.addEventListener('DOMContentLoaded', () => {
     notificationModal.classList.add('hidden');
   });
 });
+
+//analytics section
+
+function toggleDropdown(dropdownId, arrowIconId) {
+  var dropdown = document.getElementById(dropdownId);
+  var arrowIcon = document.getElementById(arrowIconId);
+  dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+  arrowIcon.classList.toggle('ri-arrow-right-s-line');
+  arrowIcon.classList.toggle('ri-arrow-down-s-line');
+}
+
+function labelDropdowns() {
+  var dropdown = document.getElementById('labelnotFound');
+  dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+}
