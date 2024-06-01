@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="src/output.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link
+    href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="src/style.css" />
+  <script
+    src="https://kit.fontawesome.com/59539ec33f.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="./js/main.js" defer></script>
+  <title>Wallet Master</title>
+</head>
+
+<body class="font-figtree antialiased">
+<!-- start header section -->
+<header class="sticky top-0 z-50 bg-white shadow-lg">
+  <nav class="container 2xl:w-[90%] flex justify-between items-center py-4">
+    <div>
+      <a class="flex items-center space-x-2" href="index.html">
+        <img
+          class="lg:w-12 w-8"
+          src="image/header-wallet.png"
+          alt="header-logo-wallet"
+        />
+        <span class="lg:text-xl md:block hidden font-bold"
+        >Wallet Master</span
+        >
+      </a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <ul class="hidden lg:flex items-center space-x-6 capitalize">
+        <li class="font-bold">
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="index.html"
+          >dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="./wallets.html"
+          >wallets</a
+          >
+        </li>
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="records.html"
+          >records</a
+          >
+        </li>
+        <li>
+          <a
+            class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"
+            href="analytics.html"
+          >analytics</a
+          >
+        </li>
+        <!-- <li>
+<a class="hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200" href="investments.html">investments</a>
+</li> -->
+        <!--        <li>-->
+        <!--          <a class="antialiased hover:text-customBlue hover:underline underline-offset-4 transition-colors duration-200"-->
+        <!--             href="imports.html">imports</a>-->
+        <!--        </li>-->
+      </ul>
+    </div>
+    <div class="flex justify-center items-center space-x-4">
+      <button
+        id="btn-open-record-modal"
+        class="capitalize py-2 text-xs px-4 bg-customGreen hover:bg-customGreen-medium transition-colors duration-300 text-white lg:text-sm rounded-xl cursor-pointer"
+      >
+        &plus; record
+      </button>
+      <div class="flex items-center space-x-4">
+        <!--        notification-->
+        <div class="relative">
+          <button id="btn-notification" class="text-xl">
+            <i class="fa-regular cursor-pointer text-bgDark fa-bell"></i>
+          </button>
+          <div
+            id="notification-modal"
+            class="hidden absolute md:right-0 -right-6 top-10 w-80 sm:w-96"
+          >
+            <!-- Modal Content -->
+            <div class="bg-white border rounded-lg shadow-lg p-4 sm:p-6">
+              <div class="flex justify-between items-center border-b pb-2">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-800">
+                  Notifications
+                </h2>
+                <button
+                  id="btn-close-notification"
+                  class="text-gray-500 text-2xl sm:text-3xl hover:text-gray-800"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="divide-y mt-4">
+                <div class="text-gray-600 p-2 sm:p-4 rounded bg-bgLight">
+                  <div class="flex">
+                    <div
+                      class="w-8 h-8 sm:w-10 sm:h-10 bg-customOrange rounded-full mr-2 flex justify-center items-center"
+                    >
+                      <i
+                        class="p-2 fa-solid fa-building-wheat text-bgLight"
+                      ></i>
+                    </div>
+                    <div class="flex justify-between w-full">
+                      <div class="flex flex-col text-sm sm:text-base">
+                            <span class="text-gray-800 capitalize"
+                            >bank loan</span
+                            >
+                        <div
+                          class="text-customBlue-dark text-xs sm:text-sm"
+                        >
+                          <i
+                            class="fa-solid fa-circle text-[8px] sm:text-[10px] text-[#6a1b9a]"
+                          ></i>
+                          <span>Cash</span>
+                        </div>
+                      </div>
+                      <div class="flex flex-col text-sm sm:text-base">
+                            <span
+                              class="text-customBlue-dark font-bold uppercase"
+                            >bdt 5,000</span
+                            >
+                        <span class="text-[#545d68] text-xs sm:text-sm"
+                        >6 hours ago</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-4 text-gray-600 p-2 sm:p-4 rounded bg-bgLight"
+                >
+                  <div class="pt-2">
+                    <div class="flex">
+                      <div
+                        class="w-8 h-8 sm:w-10 sm:h-10 bg-customOrange rounded-full mr-2 flex justify-center items-center"
+                      >
+                        <i
+                          class="p-2 fa-solid fa-building-wheat text-bgLight"
+                        ></i>
+                      </div>
+                      <div class="flex justify-between w-full">
+                        <div class="flex flex-col text-sm sm:text-base">
+                              <span class="text-gray-800 capitalize"
+                              >bank loan</span
+                              >
+                          <div
+                            class="text-customBlue-dark text-xs sm:text-sm"
+                          >
+                            <i
+                              class="fa-solid fa-circle text-[8px] sm:text-[10px] text-[#6a1b9a]"
+                            ></i>
+                            <span>Cash</span>
+                          </div>
+                        </div>
+                        <div class="flex flex-col text-sm sm:text-base">
+                              <span
+                                class="text-customBlue-dark font-bold uppercase"
+                              >bdt 5,000</span
+                              >
+                          <span class="text-[#545d68] text-xs sm:text-sm"
+                          >6 hours ago</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-4 sm:mt-6 border-t pt-2">
+                <button class="text-sm text-gray-600 hover:text-bgDark">
+                  Clear all
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--        user profile-->
+        <div class="relative">
+          <button class="text-xl" id="btn-user-dropdown">
+            <i
+              class="fa-regular fa-circle-user cursor-pointer text-bgDark"
+            ></i>
+          </button>
+          <div
+            id="user-dropdown-menu"
+            class="hidden absolute right-0 top-10 bg-white border rounded-lg px-6 py-2 shadow-xl"
+          >
+            <div class="divide-y">
+              <a href="#" class="block p-2 hover:text-customBlue"
+              >Settings</a
+              >
+              <a href="#" class="block p-2 hover:text-customBlue"
+              >Profile</a
+              >
+              <a href="#" class="block p-2 hover:text-customBlue">Help</a>
+              <a href="login.html" class="block p-2 hover:text-customBlue"
+              >Log Out</a
+              >
+            </div>
+          </div>
+        </div>
+        <button id="hamburger" class="lg:text-2xl text-xl md:hidden">
+          <i
+            id="header-bars"
+            class="fa-solid cursor-pointer text-bgDark fa-bars"
+          ></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hamburger menu structure -->
+    <div
+      id="menu"
+      class="hidden fixed inset-0 bg-white h-full z-50 transition duration-300 ease-in-out"
+    >
+      <ul class="h-full mt-10 flex flex-col space-y-2 px-10 divide-y">
+        <li class="pt-2 mb-4">
+          <a href="index.html" class="flex items-center space-x-2 text-xl">
+            <img
+              class="w-8"
+              src="image/header-wallet.png"
+              alt="header-logo-wallet"
+            />
+            <p class="text-md font-bold">Wallet Master</p>
+          </a>
+        </li>
+        <li class="pt-2">
+          <a href="index.html" class="hover:text-customBlue text-md"
+          >Dashboard</a
+          >
+        </li>
+        <li class="pt-2">
+          <a href="wallets.html" class="text-md hover:text-customBlue"
+          >Accounts</a
+          >
+        </li>
+        <li class="pt-2">
+          <a href="records.html" class="text-md hover:text-customBlue"
+          >Records</a
+          >
+        </li>
+        <li class="pt-2">
+          <a href="analytics.html" class="text-md hover:text-customBlue"
+          >Analytics</a
+          >
+        </li>
+      </ul>
+      <button
+        id="menu-close"
+        class="absolute top-4 right-4 text-xl font-medium hover:text-red-500 focus:outline-none"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- end header section -->
+
+<!--  start add record modal body-->
+<div id="record-modal" class="hidden">
+  <div class="z-50 absolute flex items-center justify-center h-screen">
+    <div
+      class="fixed inset-0 bg-gray-800 bg-opacity-30 backdrop-blur-sm flex items-center justify-center"
+    >
+      <!-- Modal -->
+      <div
+        id="record-modal-content"
+        class="bg-white rounded-lg shadow-lg max-w-lg w-[90%] p-6 relative"
+      >
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-bold mb-4">Add New Record</h2>
+          <button
+            id="btn-close-record-modal"
+            class="text-xl absolute top-3 right-3"
+          >
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+        <div class="space-y-4 lg:p-6">
+          <!-- Input and expense form selection -->
+          <div class="flex items-center space-x-2 border-b">
+            <button
+              id="expense-tab"
+              class="py-2 px-4 border-2 border-green-700 bg-green-700 text-white shadow-lg rounded-t-lg"
+            >
+              Expense
+            </button>
+            <button
+              id="income-tab"
+              class="py-2 px-4 border-2 border-green-700 text-green-700 shadow-lg rounded-t-lg"
+            >
+              Income
+            </button>
+          </div>
+          <div id="form-choice">
+            <!-- Expense Form -->
+            <form id="form-expense" action="" class="space-y-2 lg:px-6">
+              <div>
+                <label class="text-gray-800 text-sm">Wallet</label>
+                <div>
+                  <label>
+                    <select
+                      class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
+                    >
+                      <option value="">Cash</option>
+                      <option value="addAccounts">+ Add Accounts</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="lg:flex lg:space-x-4 space-y-2 lg:space-y-0 items-center justify-between"
+              >
+                <div class="flex-grow">
+                  <label for="amount" class="text-gray-800 text-sm"
+                  >Amount</label
+                  >
+                  <input
+                    id="amount"
+                    type="number"
+                    class="w-full border py-2 px-4 rounded mt-1"
+                    placeholder="0"
+                  />
+                </div>
+                <div>
+                  <label class="text-gray-800 text-sm">Currency</label>
+                  <div>
+                    <label>
+                      <select
+                        class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
+                      >
+                        <option value="">BDT</option>
+                        <option value="">USD</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm">Category</label>
+                <div class="relative">
+                  <label>
+                    <select
+                      class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
+                    >
+                      <option value="">Choose</option>
+                      <option value="Shopping">Shopping</option>
+                      <option value="Housing">Housing</option>
+                      <option value="Food">Food & Drinks</option>
+                      <option value="Vehicle">Vehicle</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="lg:flex lg:space-x-4 items-center justify-between"
+              >
+                <div class="flex-grow">
+                  <label for="date" class="text-gray-800 text-sm"
+                  >Date</label
+                  >
+                  <input
+                    id="date"
+                    type="date"
+                    class="w-full border py-2 px-4 rounded mt-1"
+                  />
+                </div>
+                <div>
+                  <label for="time" class="text-gray-800 text-sm"
+                  >Time</label
+                  >
+                  <input
+                    id="time"
+                    type="time"
+                    class="w-full border py-2 px-4 rounded mt-1"
+                    value="13:30"
+                  />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label for="note" class="text-gray-800 text-sm">Note</label>
+                <textarea
+                  id="note"
+                  class="w-full border py-2 px-4 rounded mt-1"
+                ></textarea>
+              </div>
+              <div class="py-4">
+                <button
+                  type="submit"
+                  class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors duration-300"
+                >
+                  Add Record
+                </button>
+              </div>
+            </form>
+
+            <!-- Income Form -->
+            <form
+              id="form-income"
+              action=""
+              class="space-y-2 lg:px-6 hidden"
+            >
+              <div>
+                <label class="text-gray-800 text-sm">Wallet</label>
+                <div>
+                  <label>
+                    <select
+                      class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
+                    >
+                      <option value="">Cash</option>
+                      <option value="addAccounts">+ Add Accounts</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="lg:flex lg:space-x-4 space-y-2 lg:space-y-0 items-center justify-between"
+              >
+                <div class="flex-grow">
+                  <label for="income-amount" class="text-gray-800 text-sm"
+                  >Amount</label
+                  >
+                  <input
+                    id="income-amount"
+                    type="number"
+                    class="w-full border py-2 px-4 rounded mt-1"
+                    placeholder="0"
+                  />
+                </div>
+                <div>
+                  <label class="text-gray-800 text-sm">Currency</label>
+                  <div>
+                    <label>
+                      <select
+                        class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
+                      >
+                        <option value="">BDT</option>
+                        <option value="">USD</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm">Source</label>
+                <div class="relative">
+                  <label>
+                    <select
+                      class="bg-white w-full outline-none text-gray-800 border py-2 px-4 rounded mt-1"
+                    >
+                      <option value="">Choose</option>
+                      <option value="Salary">Salary</option>
+                      <option value="Business">Business</option>
+                      <option value="Gift">Gift</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="lg:flex lg:space-x-4 items-center justify-between"
+              >
+                <div class="flex-grow">
+                  <label for="income-date" class="text-gray-800 text-sm"
+                  >Date</label
+                  >
+                  <input
+                    id="income-date"
+                    type="date"
+                    class="w-full border py-2 px-4 rounded mt-1"
+                  />
+                </div>
+                <div>
+                  <label for="income-time" class="text-gray-800 text-sm"
+                  >Time</label
+                  >
+                  <input
+                    id="income-time"
+                    type="time"
+                    class="w-full border py-2 px-4 rounded mt-1"
+                    value="13:30"
+                  />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label for="income-note" class="text-gray-800 text-sm"
+                >Note</label
+                >
+                <textarea
+                  id="income-note"
+                  class="w-full border py-2 px-4 rounded mt-1"
+                ></textarea>
+              </div>
+              <div class="py-4">
+                <button
+                  type="submit"
+                  class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors duration-300"
+                >
+                  Add Record
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--records closed-->
+<!--month select-->
+<section class="bg-[#eff0f2] p-5 sticky top-[64px] lg:top-20 z-10">
+  <div class="container">
+    <div class="flex items-center divide-x-2 justify-center">
+      <button
+        class="flex cursor-pointer items-center w-40 h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-s-lg bg-white"
+      >
+        <span class="p-4 text-sm mx-auto">Previous month</span>
+      </button>
+      <button
+        class="flex cursor-pointer items-center w-40 h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-e-lg bg-white"
+      >
+        <span class="p-4 text-sm mx-auto">This month</span>
+      </button>
+    </div>
+  </div>
+</section>
+<!--end month select-->
+<!--main body section-->
+<section class="bg-white">
+  <div class="container">
+    <section class="py-5">
+      <div class="">
+        <div class="mt-4">
+          <div class="space-y-1 my-6 border-b border-gray-300">
+            <h2 class="text-2xl font-bold capitalize">Records Summary</h2>
+            <p class="text-gray-600 text-md">
+              All income and expenses records of your account
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Card 1 -->
+            <div
+              class="bg-customBlue-dark text-white shadow-lg rounded-lg overflow-hidden flex justify-between items-center p-4"
+            >
+              <div>
+                <h3 class="text-xl font-semibold">Total Income</h3>
+                <p class="mt-2 text-balance">
+                  Total income of your wallet including bank, card and cash.
+                </p>
+              </div>
+              <div class="w-1/2">
+                <h3 class="text-right">
+                      <span class="lg:text-3xl text-xl font-bold"
+                      >$ 50015.75</span
+                      >
+                  <span>BDT</span>
+                </h3>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="bg-customPurple-light text-white shadow-lg rounded-lg overflow-hidden flex justify-between items-center p-4"
+            >
+              <div>
+                <h3 class="text-xl font-semibold">Total Expenses</h3>
+                <p class="mt-2 text-balance">
+                  Total expenses of your wallet including bank, card and
+                  cash.
+                </p>
+              </div>
+              <div class="w-1/2">
+                <div class="text-right">
+                  <p>BDT</p>
+                  <h3>
+                        <span class="lg:text-3xl text-xl font-bold"
+                        >$ 28015.75</span
+                        >
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- start table -->
+    <div class="shadow-lg rounded-xl bg-white border lg:mt-10 mt-4">
+      <div class="relative px-3">
+        <div
+          class="lg:px-6 py-6 flex md:flex-row flex-col justify-between border-b border-gray-400"
+        >
+          <div class="mb-6 md:mb-0">
+            <h1 class="text-xl">Transactions</h1>
+          </div>
+          <div class="flex md:flex-row flex-col gap-5">
+            <div class="">
+              <form class="w-full">
+                <label for="countries"></label>
+                <select
+                  id="countries"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2 dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none"
+                >
+                  <option selected>Choose a Category</option>
+                  <option value="US">Food</option>
+                  <option value="CA">Entertainment,life</option>
+                  <option value="FR">Transportation</option>
+                  <option value="DE">Others</option>
+                </select>
+              </form>
+            </div>
+            <div>
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 text-gray-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                    />
+                  </svg>
+                </div>
+                <label>
+                  <input
+                    type="date"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 py-2 px-6 outline-none md:w-60 w-full text-1xl"
+                    placeholder="Select date"
+                    value="2024-05-01"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table
+          class="w-full text-sm text-center rtl:text-right md:table-fixed"
+        >
+          <tr class="border-b text-bgDark">
+            <th class="text-left w-8 h-8 px-4 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                    checked
+                  />
+                </label>
+              </div>
+            </th>
+            <th scope="col" class="md:px-10 px-4 text-left text-md py-6">
+              <strong>Category</strong>
+            </th>
+            <th scope="col" class="px-4 text-md py-5">Current period</th>
+            <th scope="col" class="px-4 hidden md:table-cell text-md py-5">
+              Previous period
+            </th>
+            <th scope="col" class="px-4 py-5 text-md md:table-cell hidden">
+              Date
+            </th>
+            <th class="text-md">Action</th>
+          </tr>
+          <tbody class="">
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-red-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-sack-dollar"></i
+                        ></span>
+                </div>
+                <span>Income</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-green-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-utensils"></i
+                        ></span>
+                </div>
+                <span class="text-left">Food</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-blue-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-cart-shopping"></i
+                        ></span>
+                </div>
+                <span>Shopping</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-red-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-house"></i
+                        ></span>
+                </div>
+                <span>Housing</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-green-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-car"></i
+                        ></span>
+                </div>
+                <span>Transportation</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-blue-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-truck"></i
+                        ></span>
+                </div>
+                <span>Vehicle</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-red-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-futbol"></i
+                        ></span>
+                </div>
+                <span class="text-left">Entertainment</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span class="">bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-green-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-laptop"></i
+                        ></span>
+                </div>
+                <span class="text-left">Computer</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-blue-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-dollar-sign"></i
+                        ></span>
+                </div>
+                <span class="text-left">Financial</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-red-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-money-bill"></i
+                        ></span>
+                </div>
+                <span>Investments</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+          <tr class="shadow md:shadow-none text-md text-bgDark">
+            <td class="px-6 py-4 hidden md:table-cell">
+              <div class="">
+                <label>
+                  <input
+                    class="h-4 w-4"
+                    type="checkbox"
+                    name="checkboxMedium"
+                  />
+                </label>
+              </div>
+            </td>
+            <td class="md:px-8 px-6 py-4 text-center items-center">
+              <div class="flex items-center">
+                <div
+                  class="flex justify-center items-center w-10 h-10 rounded-full bg-green-500 text-[15px] mr-3"
+                >
+                        <span class="text-md text-white"
+                        ><i class="fa-solid fa-bars"></i
+                        ></span>
+                </div>
+                <span>Others</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-center uppercase relative">
+              <span>bdt 0.00</span>
+              <p class="mt-2 md:hidden">bdt 0.00</p>
+            </td>
+            <td
+              class="px-6 hidden md:table-cell py-4 text-center uppercase"
+            >
+              bdt 0.00
+            </td>
+            <td class="px-6 py-4 hidden md:table-cell">20/10/2024</td>
+            <td>
+                    <span class="px-6 py-4 text-[1.3rem]"
+                    ><i class="fa-solid fa-ellipsis-vertical"></i
+                    ></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div
+          class="bg-white p-4 border-t border-gray-300 flex items-center justify-center flex-wrap"
+        >
+          <nav aria-label="Page navigation">
+            <ul class="inline-flex">
+              <li>
+                <button
+                  class="px-4 py-2 text-customBlue transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-green-100"
+                >
+                  Prev
+                </button>
+              </li>
+              <li>
+                <button
+                  class="px-4 py-2 text-customBlue transition-colors duration-150 bg-white focus:shadow-outline hover:bg-green-100"
+                >
+                  1
+                </button>
+              </li>
+              <li>
+                <button
+                  class="px-4 py-2 text-white transition-colors duration-150 bg-customBlue focus:shadow-outline"
+                >
+                  2
+                </button>
+              </li>
+              <li>
+                <button
+                  class="px-4 py-2 text-customBlue transition-colors duration-150 bg-white focus:shadow-outline hover:bg-green-100"
+                >
+                  3
+                </button>
+              </li>
+              <li>
+                <button
+                  class="px-4 py-2 text-customBlue transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-green-100"
+                >
+                  Next
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!--end table first-->
+    </div>
+  </div>
+</section>
+
+<!--end of main body section-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>
