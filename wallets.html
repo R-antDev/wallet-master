@@ -157,7 +157,7 @@
           <a href="index.html" class="hover:text-customBlue text-md">Dashboard</a>
         </li>
         <li class="pt-2">
-          <a href="account.html" class="text-md hover:text-customBlue">Accounts</a>
+          <a href="wallets.html" class="text-md hover:text-customBlue">Accounts</a>
         </li>
         <li class="pt-2">
           <a href="records.html" class="text-md hover:text-customBlue">Records</a>
@@ -341,9 +341,9 @@
 <!--records closed-->
 
 <!--main body section-->
-<section class="container flex gap-10 my-10">
-  <aside class="bg-bgLight  rounded-lg p-6 border border-gray-200 shadow-lg">
-    <div class="mb-20 space-y-4">
+<section class="container md:flex gap-10 md:my-10 space-y-8 md:space-y-0 my-5">
+  <aside class="bg-bgLight rounded-lg p-6 border border-gray-200 shadow-lg">
+    <div class="my-5 space-y-4">
       <div class="flex items-center space-x-4">
         <h2 class="text-xl font-bold">Wallets summary</h2>
         <button
@@ -359,7 +359,7 @@
         </div>
         <div class="flex flex-col">
           <label for="sort-by" class="capitalize text-md text-gray-600">sort by</label>
-          <select id="sort-by" class="py-2 px-4 rounded-lg mt-1">
+          <select id="sort-by" class="py-2 px-4 rounded-lg mt-1 border">
             <option class="uppercase">Default</option>
             <option class="uppercase">Bank</option>
             <option class="uppercase">Card</option>
@@ -368,30 +368,31 @@
         </div>
       </div>
       <button
-        class="flex w-full items-center space-x-2 text-customGreen border-dashed border-2 border-customGreen rounded-full py-2 px-4 justify-center text-lg text-center hover:border-customGreen-medium hover:scale-105 transition-transform duration-300">
+        class="flex w-full items-center space-x-2 text-customGreen border-dashed border-2 border-customGreen rounded-full py-2 px-4 justify-center text-md text-center hover:border-customGreen-medium hover:scale-105 transition-transform duration-300">
         <i class="fa-brands fa-google-wallet"></i>
         <span class="capitalize font-bold">add wallet</span>
       </button>
     </div>
   </aside>
-  <main class="flex-grow bg-bgLight rounded-lg p-10 space-y-6 border border-gray-200 shadow-lg">
-    <article class="border border-gray-400 bg-white rounded-lg p-6 drop-shadow-lg">
+  <main class="flex-grow bg-bgLight rounded-lg md:p-10 p-4 space-y-6 border border-gray-200 shadow-lg">
+    <article class="border border-gray-400 bg-white rounded-lg md:p-6 p-4 drop-shadow-lg">
       <div class="flex items-center justify-between">
-        <div class="space-y-6">
+        <div class="md:space-y-6 space-y-4">
           <div class="space-y-2">
-            <h1 class="text-xl capitalize font-bold">my personal</h1>
-            <h4 class="text-lg capitalize text-gray-600">individual account</h4>
+            <h1 class="md:text-xl text-lg capitalize font-bold">my personal</h1>
+            <h4 class="md:text-lg text-md capitalize text-gray-600">individual account</h4>
           </div>
-          <div class="space-x-2 flex text-sm border p-2 rounded-lg">
+          <div class="space-x-2 flex md:text-sm text-xs border md:p-2 p-1.5 rounded-lg">
             <p>Cash in from bank</p><span><i class="fa-solid fa-angle-right"></i></span>
           </div>
         </div>
-        <div class="space-y-6">
+        <div class="md:space-y-6 space-y-4">
           <div class="space-y-1 text-end">
-            <h1 class="text-xl capitalize font-bold"><i class="fa-solid fa-dollar-sign me-2"></i>31,5,000.00</h1>
-            <h4 class="text-sm text-gray-600">on <span>08/05/2023</span></h4>
+            <h1 class="md:text-xl text-lg capitalize font-bold"><i class="fa-solid fa-dollar-sign me-1"></i>31,5,000.00
+            </h1>
+            <h4 class="text-sm hidden md:block text-gray-600">on <span>08/05/2023</span></h4>
             <div class="bg-green-200 rounded-lg border border-customGreen p-1 text-center">
-              <h1 class="text-sm capitalize text-customGreen-dark font-bold "><i
+              <h1 class="md:text-sm text-xs capitalize text-customGreen-dark font-bold "><i
                 class="fa-solid fa-dollar-sign me-2"></i>5,000.00
               </h1>
             </div>
@@ -408,23 +409,24 @@
         </div>
       </div>
     </article>
-    <article class="border border-gray-400 bg-white rounded-lg p-6 drop-shadow-lg">
+    <article class="border border-gray-400 bg-white rounded-lg md:p-6 p-4 drop-shadow-lg">
       <div class="flex items-center justify-between">
-        <div class="space-y-6">
+        <div class="md:space-y-6 space-y-4">
           <div class="space-y-2">
-            <h1 class="text-xl capitalize font-bold">sonali bank</h1>
-            <h4 class="text-lg capitalize text-gray-600">bank</h4>
+            <h1 class="md:text-xl text-lg capitalize font-bold">sonali bank</h1>
+            <h4 class="md:text-lg text-md capitalize text-gray-600">bank</h4>
           </div>
-          <div class="space-x-2 flex text-sm border p-2 rounded-lg">
+          <div class="space-x-2 flex md:text-sm text-xs border md:p-2 p-1.5 rounded-lg">
             <p>Cash in from bank</p><span><i class="fa-solid fa-angle-right"></i></span>
           </div>
         </div>
-        <div class="space-y-6">
+        <div class="md:space-y-6 space-y-4">
           <div class="space-y-1 text-end">
-            <h1 class="text-xl capitalize font-bold"><i class="fa-solid fa-dollar-sign me-2"></i>31,5,000.00</h1>
-            <h4 class="text-sm text-gray-600">on <span>08/05/2023</span></h4>
+            <h1 class="md:text-xl text-lg capitalize font-bold"><i class="fa-solid fa-dollar-sign me-1"></i>31,5,000.00
+            </h1>
+            <h4 class="text-sm hidden md:block text-gray-600">on <span>08/05/2023</span></h4>
             <div class="bg-green-200 rounded-lg border border-customGreen p-1 text-center">
-              <h1 class="text-sm capitalize text-customGreen-dark font-bold ">
+              <h1 class="md:text-sm text-xs capitalize text-customGreen-dark font-bold ">
                 <i class="fa-solid fa-dollar-sign me-2"></i>2,000.00
               </h1>
             </div>
@@ -441,23 +443,24 @@
         </div>
       </div>
     </article>
-    <article class="border border-gray-400 bg-white rounded-lg p-6 drop-shadow-lg">
+    <article class="border border-gray-400 bg-white rounded-lg md:p-6 p-4 drop-shadow-lg">
       <div class="flex items-center justify-between">
-        <div class="space-y-6">
+        <div class="md:space-y-6 space-y-4">
           <div class="space-y-2">
-            <h1 class="text-xl capitalize font-bold">Visa card</h1>
-            <h4 class="text-lg capitalize text-gray-600">islami bank</h4>
+            <h1 class="md:text-xl text-lg capitalize font-bold">Visa card</h1>
+            <h4 class="md:text-lg text-md capitalize text-gray-600">islami bank</h4>
           </div>
-          <div class="space-x-2 flex text-sm border p-2 rounded-lg">
+          <div class="space-x-2 flex md:text-sm text-xs border md:p-2 p-1.5  rounded-lg">
             <p>Cash in from bank</p><span><i class="fa-solid fa-angle-right"></i></span>
           </div>
         </div>
-        <div class="space-y-6">
+        <div class="md:space-y-6 space-y-4">
           <div class="space-y-1 text-end">
-            <h1 class="text-xl capitalize font-bold"><i class="fa-solid fa-dollar-sign me-2"></i>31,2,000.00</h1>
-            <h4 class="text-sm text-gray-600">on <span>08/05/2023</span></h4>
+            <h1 class="md:text-xl text-lg capitalize font-bold"><i class="fa-solid fa-dollar-sign me-2"></i>31,2,000.00
+            </h1>
+            <h4 class="text-sm hidden md:block text-gray-600">on <span>08/05/2023</span></h4>
             <div class="bg-orange-200 rounded-lg border border-customOrange p-1 text-center">
-              <h1 class="text-sm capitalize text-customOrange-dark font-bold "><i
+              <h1 class="md:text-sm text-xs capitalize text-customOrange-dark font-bold "><i
                 class="fa-solid fa-dollar-sign me-2"></i>1,000.00
               </h1>
             </div>
