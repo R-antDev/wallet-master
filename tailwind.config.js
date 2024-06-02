@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   content: ['./**/*.html', './js/**/*.js'],
   theme: {
@@ -41,6 +41,8 @@ module.exports = {
         bgDark: '#171B18',
         bgLight: '#F9F9F9',
         bgMedium: '#E4E6E6',
+        bgPrimary: '#eff0f2',
+        bgSecondary: '#fafbfc',
       },
     },
   },

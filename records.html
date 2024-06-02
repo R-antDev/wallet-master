@@ -21,7 +21,7 @@
 
 <body class="font-figtree antialiased">
 <!-- start header section -->
-<header class="sticky top-0 z-50 bg-white shadow-lg">
+<header class="sticky top-0 z-50 bg-white drop-shadow">
   <nav class="container 2xl:w-[90%] flex justify-between items-center py-4">
     <div>
       <a class="flex items-center space-x-2" href="index.html">
@@ -522,27 +522,61 @@
 </div>
 <!--records closed-->
 <!--month select-->
-<section class="bg-[#eff0f2] p-5 sticky top-[64px] lg:top-20 z-10">
-  <div class="container">
-    <div class="flex items-center divide-x-2 justify-center">
-      <button
-        class="flex cursor-pointer items-center w-40 h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-s-lg bg-white"
+<section class="bg-bgSecondary flex items-center py-8 shadow">
+  <div class="container 2xl:w-[90%]">
+    <div
+      class="flex flex-wrap items-center space-y-4 md:space-y-0 md:space-x-6"
+    >
+      <div
+        class="bg-customBlue-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
       >
-        <span class="p-4 text-sm mx-auto">Previous month</span>
-      </button>
-      <button
-        class="flex cursor-pointer items-center w-40 h-8 border border-[#ccd2db] hover:border-[#0095ff] rounded-e-lg bg-white"
+        <div class="text-white text-2xl mr-3">
+          <i class="fa-solid fa-money-check-dollar"></i>
+        </div>
+        <div class="flex justify-around space-x-4 items-center uppercase">
+          <h2 class="text-white">Cash:</h2>
+          <h2 class="uppercase text-white font-bold">15,000</h2>
+          <h2 class="uppercase text-bgMedium">bdt</h2>
+        </div>
+      </div>
+      <div
+        class="bg-customGreen p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
       >
-        <span class="p-4 text-sm mx-auto">This month</span>
-      </button>
+        <div class="text-white text-2xl mr-3">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div class="flex justify-around space-x-4 items-center uppercase">
+          <h2 class="text-white">Bank:</h2>
+          <h2 class="uppercase text-white font-bold">78,0000</h2>
+          <h2 class="uppercase text-bgMedium">bdt</h2>
+        </div>
+      </div>
+      <div
+        class="bg-customOrange-dark p-3 drop-shadow-xl rounded-xl hover:scale-105 transition-transform duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
+      >
+        <div class="text-white text-2xl mr-3">
+          <i class="fa-regular fa-credit-card"></i>
+        </div>
+        <div class="flex justify-around space-x-4 items-center uppercase">
+          <h2 class="text-white">Card:</h2>
+          <h2 class="uppercase text-white font-bold">6,000</h2>
+          <h2 class="uppercase text-bgMedium">bdt</h2>
+        </div>
+      </div>
+      <div
+        id="btn-open-wallet-modal"
+        class="border-2 border-dashed border-gray-500 p-3 drop-shadow-xl rounded-xl text-gray-500 transition-colors hover:border-customBlue hover:text-customBlue duration-300 ease-in-out flex items-center cursor-pointer w-full md:w-auto"
+      >
+        <button class="capitalize lg:px-5 m-auto">&plus; new wallet</button>
+      </div>
     </div>
   </div>
 </section>
 <!--end month select-->
 <!--main body section-->
-<section class="bg-white">
-  <div class="container">
-    <section class="lg:py-5">
+<section class="bg-bgPrimary">
+  <div class="container py-10">
+    <section class="lg:p-5 bg-white rounded-lg drop-shadow-lg">
       <div class="">
         <div class="mt-4">
           <div class="space-y-1 my-6 border-b border-gray-300">
@@ -551,7 +585,7 @@
               All income and expenses records of your account
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 cursor-pointer md:grid-cols-2 gap-8">
             <!-- Card 1 -->
             <div
               class="bg-customBlue-dark text-white shadow-lg rounded-lg overflow-hidden flex justify-between items-center p-4"
@@ -574,7 +608,7 @@
 
             <!-- Card 2 -->
             <div
-              class="bg-customPurple-light text-white shadow-lg rounded-lg overflow-hidden flex justify-between items-center p-4"
+              class="cursor-pointer bg-customPurple-light text-white shadow-lg rounded-lg overflow-hidden flex justify-between items-center p-4"
             >
               <div>
                 <h3 class="text-xl font-semibold">Total Expenses</h3>
@@ -599,10 +633,10 @@
       </div>
     </section>
     <!-- start table -->
-    <div class="shadow-lg rounded-xl bg-white border lg:mt-10 mt-4">
+    <div class="drop-shadow-lg rounded-xl bg-white border lg:mt-10 mt-4">
       <div class="relative px-3">
         <div
-          class="lg:px-6 py-6 flex md:flex-row flex-col justify-between border-b border-gray-400"
+          class="lg:px-6 py-6 flex md:flex-row flex-col justify-between items-center border-b border-gray-400"
         >
           <div class="mb-6 md:mb-0">
             <h1 class="text-xl">Transactions</h1>
@@ -1134,7 +1168,7 @@
           </tbody>
         </table>
         <div
-          class="bg-white p-4 border-t border-gray-300 flex items-center justify-center flex-wrap"
+          class="bg-white p-4 border-t border-gray-300 flex items-center justify-end flex-wrap"
         >
           <nav aria-label="Page navigation">
             <ul class="inline-flex">
@@ -1181,7 +1215,6 @@
     </div>
   </div>
 </section>
-
 <!--end of main body section-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </body>
