@@ -2431,6 +2431,11 @@ video {
     padding-right: 1.5rem;
   }
 
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -2521,6 +2526,10 @@ video {
 
   .lg\:p-6 {
     padding: 1.5rem;
+  }
+
+  .lg\:p-10 {
+    padding: 2.5rem;
   }
 
   .lg\:px-5 {
